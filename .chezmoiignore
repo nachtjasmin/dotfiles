@@ -1,0 +1,5 @@
+README.md
+
+{{ if eq .chezmoi.os "darwin" }}
+.config/yay/config.json
+{{ end }}
