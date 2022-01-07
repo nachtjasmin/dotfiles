@@ -2,6 +2,9 @@
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias nah='git nah'
 
+# Chezmoi
+alias cz=chezmoi
+
 # Docker
 alias docker-nas='docker -H tcp://192.168.178.200:2376'
 
