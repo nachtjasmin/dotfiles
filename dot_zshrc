@@ -5,15 +5,15 @@ ZSH=/usr/share/oh-my-zsh/
 HIST_STAMPS="dd.mm.yyyy"
 
 # Load oh-my-zsh plugins
-ZSH_CUSTOM=$HOME/.dotfiles/oh-my-zsh
+ZSH_CUSTOM=$HOME/.oh-my-zsh
 plugins=(
     git
     docker
 	docker-compose
     z
-    ansible
     httpie
 	just
+	chezmoi
 )
 
 # Load zsh
@@ -26,7 +26,7 @@ source $ZSH/oh-my-zsh.sh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Load the shell dotfiles.
-for file in ~/.dotfiles/shell/.{exports,aliases,functions}; do
+for file in ~/.{exports,aliases,functions}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file
