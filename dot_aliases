@@ -1,0 +1,19 @@
+# Git
+alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias nah='git reset --hard;git clean -df'
+
+# Docker
+alias docker-nas='docker -H tcp://192.168.178.200:2376'
+
+# List all files colorized in long format
+alias l="ls -laF"
+
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
+
+# Default linux tools
+alias mkdir='mkdir -p'
+alias grep='rg' # ripgrep
+alias dd='dd status=progress'
+alias cat='bat'
+alias ls='exa'

@@ -1,0 +1,42 @@
+# Path to your oh-my-zsh configuration.
+ZSH=/usr/share/oh-my-zsh/
+
+# Use a different timestamp for history
+HIST_STAMPS="dd.mm.yyyy"
+
+# Load oh-my-zsh plugins
+ZSH_CUSTOM=$HOME/.dotfiles/oh-my-zsh
+plugins=(
+    git
+    docker
+	docker-compose
+    z
+    ansible
+    httpie
+	just
+)
+
+# Load zsh
+ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
+if [[ ! -d $ZSH_CACHE_DIR ]]; then
+  mkdir $ZSH_CACHE_DIR
+fi
+
+source $ZSH/oh-my-zsh.sh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Load the shell dotfiles.
+for file in ~/.dotfiles/shell/.{exports,aliases,functions}; do
+	[ -r "$file" ] && [ -f "$file" ] && source "$file"
+done
+unset file
+
+# Sudoless npm (https://wiki.archlinux.org/index.php/Node.js#Allow_user-wide_installations)
+NPM_PACKAGES="${HOME}/.npm-packages"
+PATH="$NPM_PACKAGES/bin:$PATH"
+export npm_config_prefix=$NPM_PACKAGES
+
+# Starship
+eval "$(starship init zsh)"
+eval "$(direnv hook zsh)"
+unset LS_COLORS
