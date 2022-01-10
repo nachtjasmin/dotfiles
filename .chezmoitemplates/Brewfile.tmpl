@@ -1,0 +1,54 @@
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+
+# Essential command-line tools
+brew "bat"
+brew "brew-gem" # Install RubyGems as Homebrew formulae
+brew "chezmoi"
+brew "entr" # Run arbitrary commands when files change
+brew "exa"
+brew "git-lfs"
+brew "less"
+brew "ripgrep"
+brew "starship"
+brew "wget"
+
+# Generic
+cask "microsoft-auto-update"
+cask "microsoft-edge"
+brew "syncthing" # Open source continuous file synchronization application
+
+# Generic development tools
+brew "docker"
+brew "docker-compose"
+cask "visual-studio-code"
+
+# Webdev
+brew "httpie"
+brew "hugo"
+brew "node"
+brew "yarn"
+
+# Java
+brew "maven"
+brew "openjdk"
+brew "openjdk@11"
+cask "intellij-idea"
+
+# Communication
+cask "cisco-jabber"
+cask "element"
+cask "microsoft-teams"
+cask "rocket-chat"
+cask "signal"
+cask "zoom"
+
+# Multimedia
+cask "spotify"
+cask "vlc"
+
+# Mac App Store
+brew "mas"
+mas "Microsoft Remote Desktop", id: 1295203466
+mas "WireGuard", id: 1451685025
