@@ -5,6 +5,9 @@ alias nah='git nah'
 # Chezmoi
 alias cz=chezmoi
 
+# Directories
+alias ..="cd .."
+
 # Docker
 alias docker-nas='docker -H tcp://192.168.178.200:2376'
 

@@ -18,12 +18,9 @@ defer = { value = 'zsh-defer source "{{ file }}"', each = true }
 [plugins.zsh-defer]
 github = "romkatv/zsh-defer"
 
-[plugins.custom-common]
-local = '~/.config/shell'
+[plugins.custom]
+local = '~/.config/zsh'
 use = ["*.zsh"]
-
-[plugins.custom-zsh-plugins]
-local = '~/.config/shell/plugins'
 
 [plugins.direnv]
 remote = 'https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/direnv/direnv.plugin.zsh'
@@ -39,15 +36,15 @@ remote = 'https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/httpi
 github = "zsh-users/zsh-autosuggestions"
 tag = "v0.7.0"
 use = ["{{ name }}.zsh"]
-apply = ["defer"]
+apply = ["defer", "fpath"]
 
 [plugins.zsh-completions]
 github = 'zsh-users/zsh-completions'
-apply = ["defer"]
+apply = ["defer", "fpath"]
 
 [plugins.zsh-syntax-highlighting]
 github = "zsh-users/zsh-syntax-highlighting"
-apply = ["defer"]
+apply = ["defer", "fpath"]
 
 [plugins.clipboard]
 github = "zpm-zsh/clipboard"
