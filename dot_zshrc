@@ -1,19 +1,5 @@
-# load zgenom
-source "${HOME}/.local/zinit/zinit.zsh"
-
-zinit snippet OMZ::plugins/git/git.plugin.zsh
-zinit snippet OMZ::plugins/direnv/direnv.plugin.zsh
-zinit snippet OMZ::plugins/httpie/httpie.plugin.zsh
-zinit snippet OMZ::plugins/docker-compose
-zinit snippet $HOME/.zsh-plugins/just.plugin.zsh
-zinit snippet $HOME/.zsh-plugins/chezmoi.plugin.zsh
-zinit load $HOME/.zsh-plugins/zsh-autosuggestions
-
-# Load the shell dotfiles.
-for file in ~/.{exports,aliases,functions}; do
-	[ -r "$file" ] && [ -f "$file" ] && source "$file"
-done
-unset file
+# load sheldon
+eval "$(sheldon source)"
 
 # Sudoless npm (https://wiki.archlinux.org/index.php/Node.js#Allow_user-wide_installations)
 NPM_PACKAGES="${HOME}/.npm-packages"

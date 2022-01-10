@@ -8,9 +8,6 @@ alias cz=chezmoi
 # Docker
 alias docker-nas='docker -H tcp://192.168.178.200:2376'
 
-# List all files colorized in long format
-alias l="ls -laF"
-
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 
@@ -18,5 +15,5 @@ alias sudo='sudo '
 alias mkdir='mkdir -p'
 alias grep='rg' # ripgrep
 alias dd='dd status=progress'
-alias cat='bat'
+alias cat='bat --theme base16 --style "plain"'
 alias ls='exa'

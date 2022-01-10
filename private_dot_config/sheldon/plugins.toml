@@ -1,0 +1,56 @@
+# `sheldon` configuration file
+# ----------------------------
+#
+# You can modify this file directly or you can use one of the following
+# `sheldon` commands which are provided to assist in editing the config file:
+#
+# - `sheldon add` to add a new plugin to the config file
+# - `sheldon edit` to open up the config file in the default editor
+# - `sheldon remove` to remove a plugin from the config file
+#
+# See the documentation for more https://github.com/rossmacarthur/sheldon#readme
+
+[templates]
+defer = { value = 'zsh-defer source "{{ file }}"', each = true }
+
+[plugins]
+
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+
+[plugins.custom-common]
+local = '~/.config/shell'
+use = ["*.zsh"]
+
+[plugins.custom-zsh-plugins]
+local = '~/.config/shell/plugins'
+
+[plugins.direnv]
+remote = 'https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/direnv/direnv.plugin.zsh'
+
+[plugins.command-not-found]
+remote = 'https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/command-not-found/command-not-found.plugin.zsh'
+apply = ["defer"]
+
+[plugins.httpie]
+remote = 'https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/httpie/httpie.plugin.zsh'
+
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+tag = "v0.7.0"
+use = ["{{ name }}.zsh"]
+apply = ["defer"]
+
+[plugins.zsh-completions]
+github = 'zsh-users/zsh-completions'
+apply = ["defer"]
+
+[plugins.zsh-syntax-highlighting]
+github = "zsh-users/zsh-syntax-highlighting"
+apply = ["defer"]
+
+[plugins.clipboard]
+github = "zpm-zsh/clipboard"
+
+[plugins.compinit]
+inline = 'autoload -Uz compinit && compinit'
