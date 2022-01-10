@@ -1,11 +1,3 @@
-# load sheldon
 eval "$(sheldon source)"
-
-# Sudoless npm (https://wiki.archlinux.org/index.php/Node.js#Allow_user-wide_installations)
-NPM_PACKAGES="${HOME}/.npm-packages"
-PATH="$NPM_PACKAGES/bin:$PATH"
-export npm_config_prefix=$NPM_PACKAGES
-
-# Starship
 eval "$(starship init zsh)"
 unset LS_COLORS

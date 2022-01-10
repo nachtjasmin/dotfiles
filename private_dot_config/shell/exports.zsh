@@ -1,6 +1,3 @@
-# Add Go binaries
-export PATH="$PATH:$HOME/go/bin"
-
 # Make vim the default editor
 export EDITOR="vim"
 
