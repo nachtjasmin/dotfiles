@@ -18,6 +18,15 @@ defer = { value = 'zsh-defer source "{{ file }}"', each = true }
 [plugins.zsh-defer]
 github = "romkatv/zsh-defer"
 
+[plugins.oh-my-zsh-lib]
+github = 'ohmyzsh/ohmyzsh'
+use = [
+    "lib/completion.zsh",
+    "lib/directories.zsh",
+    "lib/history.zsh",
+    "lib/key-bindings.zsh",
+]
+
 [plugins.custom]
 local = '~/.config/zsh'
 use = ["*.zsh"]
@@ -52,6 +61,10 @@ github = "zpm-zsh/clipboard"
 [plugins.git-extras]
 github = 'tj/git-extras'
 tag = "6.3.0"
+
+
+# [plugins.keybindings]
+# remote = "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/lib/key-bindings.zsh"
 
 [plugins.compinit]
 inline = 'autoload -Uz compinit && compinit'
