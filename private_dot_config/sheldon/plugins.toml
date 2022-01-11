@@ -54,10 +54,6 @@ apply = ["defer", "fpath"]
 github = 'zsh-users/zsh-completions'
 apply = ["defer", "fpath"]
 
-[plugins.zsh-syntax-highlighting]
-github = "zsh-users/zsh-syntax-highlighting"
-apply = ["defer", "fpath"]
-
 [plugins.clipboard]
 github = "zpm-zsh/clipboard"
 
