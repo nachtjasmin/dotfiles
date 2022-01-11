@@ -49,5 +49,9 @@ apply = ["defer", "fpath"]
 [plugins.clipboard]
 github = "zpm-zsh/clipboard"
 
+[plugins.git-extras]
+github = 'tj/git-extras'
+tag = "6.3.0"
+
 [plugins.compinit]
 inline = 'autoload -Uz compinit && compinit'
