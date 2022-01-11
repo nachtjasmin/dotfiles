@@ -1,3 +1,4 @@
-eval "$(sheldon source)"
+# add the config dir, so that macOS finds it automatically.
+eval "$(sheldon --config-dir ~/.config/sheldon source)"
 eval "$(starship init zsh)"
 unset LS_COLORS
