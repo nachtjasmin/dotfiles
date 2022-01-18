@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# plugins.toml hash: {{ include "private_dot_config/sheldon/plugins.toml" | sha256sum }}
+# plugins.toml hash: {{ include "private_dot_config/sheldon/plugins.toml.tmpl" | sha256sum }}
 sheldon lock
 echo "You might want to execute:"
 echo ""

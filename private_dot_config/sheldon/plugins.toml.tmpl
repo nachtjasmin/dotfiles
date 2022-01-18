@@ -11,7 +11,7 @@
 # See the documentation for more https://github.com/rossmacarthur/sheldon#readme
 
 [templates]
-defer = { value = 'zsh-defer source "{{ file }}"', each = true }
+defer = { value = 'zsh-defer source "{{`{{ file }}`}}"', each = true } # workaround for Go templates
 
 [plugins]
 
@@ -30,9 +30,13 @@ use = [
     "lib/key-bindings.zsh",
 ]
 
-[plugins.custom]
-local = '~/.config/zsh'
+[plugins.custom-config]
+local = '~/.config/zsh/config'
 use = ["*.zsh"]
+
+[plugins.custom-completions]
+local = '~/.config/zsh/suggestions'
+apply = ["fpath"]
 
 [plugins.direnv]
 remote = 'https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/direnv/direnv.plugin.zsh'
@@ -47,7 +51,7 @@ remote = 'https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/httpi
 [plugins.zsh-autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
 tag = "v0.7.0"
-use = ["{{ name }}.zsh"]
+use = ["zsh-autosuggestions.zsh"]
 apply = ["defer", "fpath"]
 
 [plugins.zsh-completions]
@@ -60,3 +64,9 @@ github = "zpm-zsh/clipboard"
 [plugins.git-extras]
 github = 'tj/git-extras'
 tag = "6.3.0"
+
+{{ if eq .chezmoi.os "darwin" }}
+[plugins.brew-site-functions]
+local = '/usr/local/share/zsh/site-functions'
+apply = ["fpath"]
+{{ end }}
