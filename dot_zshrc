@@ -1,3 +1,7 @@
+# Add local binary folder ~/.bin. It cannot be added to the path.zsh, because if sheldon is
+# installed in the local binary folder (which it is under ubuntu), it would not be found afterwards.
+export PATH="$PATH:$HOME/.bin"
+
 # add the config dir, so that macOS finds it automatically.
 eval "$(sheldon --config-dir ~/.config/sheldon source)"
 eval "$(starship init zsh)"

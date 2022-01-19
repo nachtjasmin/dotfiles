@@ -1,6 +1,3 @@
-# Add local binary folder ~/.bin
-export PATH="$PATH:$HOME/.bin"
-
 # Add Go binaries
 export PATH="$PATH:$HOME/go/bin"
 
