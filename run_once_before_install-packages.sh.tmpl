@@ -24,7 +24,7 @@ then
   sudo pacman -S --noconfirm --needed git base-devel
   git clone https://aur.archlinux.org/yay.git
   cd yay
-  makepkg -si
+  makepkg -si --noconfirm
   cd ..
   rm -rf yay # force needed, because of .git folder
 fi
