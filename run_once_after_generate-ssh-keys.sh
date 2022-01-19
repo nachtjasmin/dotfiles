@@ -1,4 +1,8 @@
 #!/bin/bash
+if ! command -v ssh-keygen &>/dev/null; then
+	echo "ssh not installed on system, skipping ssh key generation..."
+	exit 0
+fi
 
 destination="$HOME/.ssh/id_ed25519"
 
