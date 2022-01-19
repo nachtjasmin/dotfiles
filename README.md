@@ -1,29 +1,12 @@
-**_Managed by chezmoi_**
+# 👩‍💻 Personal dotfiles, managed by chezmoi
 
-Operating systems: macOS, Arch Linux
+_Operating systems: macOS, Arch Linux_
 
-# Prerequisites
+## Installation
 
-## [yay](https://github.com/Jguer/yay)
-
-**Arch Linux**
-
-```shell
-$ pacman -S --needed git base-devel
-$ git clone https://aur.archlinux.org/yay.git
-$ cd yay
-$ makepkg -si
-```
-
-## [chezmoi](https://www.chezmoi.io)
+To install chezmoi, copy the dotfiles and purge the binary afterwards (it'll install itself using
+the package managers), run the following command:
 
 ```shell
-$ brew install chezmoi # on macOS
-$ yay -S chezmoi # on Arch Linux
-
-$ chezmoi init https://github.com/nachtjasmin/dotfiles.git
+sh -c "$(curl -fsLS chezmoi.io/get)" -- init --ssh --purge-binary --apply nachtjasmin
 ```
-
-## TODO
-
-- Install prerequisites using scripts
