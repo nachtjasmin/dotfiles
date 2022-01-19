@@ -21,7 +21,7 @@ if ! command -v yay &> /dev/null
 then
   echo "yay is not installed on system, trying to install it"
 
-  sudo pacman -S --needed git base-devel
+  sudo pacman -S --noconfirm --needed git base-devel
   git clone https://aur.archlinux.org/yay.git
   cd yay
   makepkg -si
@@ -33,7 +33,7 @@ packages=$(cat <<EOF | grep -v "^$" | grep -v "#"
 {{ template "arch-packages.tmpl" . }}
 EOF
 )
-echo $packages | yay -S --needed -
+echo $packages | yay -S --needed --noconfirm -
 
 {{ end -}}
 
