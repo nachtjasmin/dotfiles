@@ -4,14 +4,6 @@ Operating systems: macOS, Arch Linux
 
 # Prerequisites
 
-## [Homebrew](https://brew.sh)
-
-**macOS**
-
-```shell
-$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-```
-
 ## [yay](https://github.com/Jguer/yay)
 
 **Arch Linux**

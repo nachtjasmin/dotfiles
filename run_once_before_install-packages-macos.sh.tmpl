@@ -1,6 +1,12 @@
 {{- if (eq .chezmoi.os "darwin") -}}
 #!/usr/bin/env bash
 
+if ! command -v brew &> /dev/null
+then
+	echo "Brew is not installed on the system, running the installer."
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
 brew bundle install \
   --no-lock \
   --file=/dev/stdin <<EOF
