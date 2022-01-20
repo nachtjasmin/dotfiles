@@ -12,9 +12,7 @@ brew bundle install \
   --file=/dev/stdin <<EOF
 {{ template "Brewfile.tmpl" . }}
 EOF
-{{ end -}}
-
-{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "arch") -}}
+{{- else if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "arch") -}}
 #!/usr/bin/zsh
 
 if ! command -v yay &> /dev/null
@@ -35,9 +33,7 @@ EOF
 )
 echo $packages | yay -S --needed --noconfirm -
 
-{{ end -}}
-
-{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "ubuntu") -}}
+{{- else if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "ubuntu") -}}
 #!/bin/bash
 set -e
 # We use only a small subset of the required tools and only install required stuff.
