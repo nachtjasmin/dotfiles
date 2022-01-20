@@ -1,6 +1,6 @@
 # 👩‍💻 Personal dotfiles, managed by chezmoi
 
-_Operating systems: macOS, Arch Linux_
+_Operating systems: macOS, Arch Linux, Ubuntu (partially)_
 
 ## Installation
 
