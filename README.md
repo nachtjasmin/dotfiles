@@ -8,5 +8,11 @@ To install chezmoi, copy the dotfiles and purge the binary afterwards (it'll ins
 the package managers), run the following command:
 
 ```shell
+sh -c "$(curl -fsLS chezmoi.io/get)" -- init --purge-binary --apply chloe-the-catgirl
+```
+
+or with SSH (recommended for work machines):
+
+```shell
 sh -c "$(curl -fsLS chezmoi.io/get)" -- init --ssh --purge-binary --apply chloe-the-catgirl
 ```
