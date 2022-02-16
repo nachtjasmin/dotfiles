@@ -1,5 +1,5 @@
 # Autocompletion for cocogitto
 #
 if [ $commands[cog] ]; then
-  source <(cocogitto generate-completions zsh)
+  source <(cog generate-completions zsh)
 fi
