@@ -1,6 +1,7 @@
 # Git
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias nah='git nah'
+alias gitroot='cd "$(git rev-parse --show-toplevel)"'
 
 # Chezmoi
 alias cz=chezmoi
