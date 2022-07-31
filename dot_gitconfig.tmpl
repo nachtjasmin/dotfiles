@@ -1,6 +1,7 @@
 [user]
 	name = {{ .name | quote }}
 	email = {{ .email | quote }}
+	signingkey = "~/.ssh/id_ed25519.pub"
 [core]
 	autocrlf = input
 	editor = vim
@@ -25,3 +26,11 @@
 	process = git-lfs filter-process
 [init]
 	defaultBranch = main
+[commit]
+	gpgsign = true
+[gpg]
+	format = ssh
+[tag]
+	gpgSign = true
+[gpg "ssh"]
+	allowedSignersFile = /home/jasmin/.config/git/allowed_signers
