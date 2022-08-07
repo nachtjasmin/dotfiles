@@ -1,5 +1,5 @@
 # fzf's command
-export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude 'node_modules'"
+export FZF_DEFAULT_COMMAND="fd --type f --follow --exclude 'node_modules'"
 
 # CTRL-T's command
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -16,12 +16,7 @@ export FZF_DEFAULT_OPTS="
 --prompt='∼ '
 --pointer='▶'
 --marker='✓'
---preview '([[ -f {} ]] && (bat --style=numbers,header,grid --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'
 --bind '?:toggle-preview'
---bind 'ctrl-a:select-all'
---bind 'ctrl-y:execute-silent(echo {+} | pbcopy)'
---bind 'ctrl-e:execute(echo {+} | xargs -o vim)'
---bind 'ctrl-v:execute(code {+})'
 "
 
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS"
