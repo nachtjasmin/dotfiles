@@ -18,6 +18,10 @@ defer = { value = 'zsh-defer source "{{`{{ file }}`}}"', each = true } # workaro
 [plugins.zsh-defer]
 github = "romkatv/zsh-defer"
 
+[plugins.fzf-tab]
+github = "Aloxaf/fzf-tab"
+use = ["fzf-tab.zsh"]
+
 [plugins.compinit]
 inline = 'autoload -Uz compinit && compinit'
 
@@ -30,7 +34,8 @@ use = [
     "lib/key-bindings.zsh",
     "plugins/golang/_golang",
     "plugins/lol/*.zsh",
-    "plugins/npm/*.zsh"
+    "plugins/npm/*.zsh",
+	"plugins/fzf/*.zsh"
 ]
 
 [plugins.custom-config]
