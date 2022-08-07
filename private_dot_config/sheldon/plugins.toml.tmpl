@@ -35,7 +35,9 @@ use = [
     "plugins/golang/_golang",
     "plugins/lol/*.zsh",
     "plugins/npm/*.zsh",
-	"plugins/fzf/*.zsh"
+	"plugins/fzf/*.zsh",
+	"plugins/httpie/*.zsh",
+	"plugins/command-not-found/*.zsh"
 ]
 
 [plugins.custom-config]
@@ -45,13 +47,6 @@ use = ["*.zsh"]
 [plugins.custom-completions]
 local = '~/.config/zsh/suggestions'
 apply = ["fpath"]
-
-[plugins.command-not-found]
-remote = 'https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/command-not-found/command-not-found.plugin.zsh'
-apply = ["defer"]
-
-[plugins.httpie]
-remote = 'https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/httpie/httpie.plugin.zsh'
 
 [plugins.zsh-autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
