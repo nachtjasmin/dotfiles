@@ -19,5 +19,5 @@ alias sudo='sudo '
 alias mkdir='mkdir -p'
 alias grep='rg' # ripgrep
 alias dd='dd status=progress'
-alias cat='bat --theme base16 --style "plain"'
+alias cat='bat'
 alias ls='exa'
