@@ -11,7 +11,7 @@
 # See the documentation for more https://github.com/rossmacarthur/sheldon#readme
 
 [templates]
-defer = { value = 'zsh-defer source "{{`{{ file }}`}}"', each = true } # workaround for Go templates
+defer = "{% for file in files %}zsh-defer source \"{{`{{ file }}`}}\"\n{% endfor %}"
 
 [plugins]
 
