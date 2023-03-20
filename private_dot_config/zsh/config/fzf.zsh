@@ -18,12 +18,10 @@ export FZF_DEFAULT_OPTS="
 --bind '?:toggle-preview'
 "
 
-
-FORGIT_FZF_DEFAULT_OPTS="
+export FORGIT_FZF_DEFAULT_OPTS="
 --exact
 --border
 --cycle
 --reverse
---preview-window=bottom:80%
---height '80%'
+--preview-window=right:70%
 "
