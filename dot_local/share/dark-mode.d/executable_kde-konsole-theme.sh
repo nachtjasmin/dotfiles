@@ -16,6 +16,6 @@ for i in "${KONSOLEPIDS[@]}"
         for x in $(seq 1 $CURRENTSESSIONCOUNT)
             do 
                 # change profile through dbus message
-                qdbus org.kde.konsole-$i /Sessions/$x setProfile "Breath"
+                qdbus org.kde.konsole-$i /Sessions/$x setProfile "dark"
             done
     done
