@@ -18,10 +18,6 @@ defer = "{% for file in files %}zsh-defer source \"{{`{{ file }}`}}\"\n{% endfor
 [plugins.zsh-defer]
 github = "romkatv/zsh-defer"
 
-[plugins.fzf-tab]
-github = "Aloxaf/fzf-tab"
-use = ["fzf-tab.zsh"]
-
 [plugins.compinit]
 inline = 'autoload -Uz compinit && compinit'
 
