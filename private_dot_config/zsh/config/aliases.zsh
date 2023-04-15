@@ -21,3 +21,5 @@ alias grep='rg' # ripgrep
 alias dd='dd status=progress'
 alias cat='bat'
 alias ls='exa'
+
+alias ip="ip --color=auto"
