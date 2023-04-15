@@ -10,7 +10,7 @@ export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
 export FZF_DEFAULT_OPTS="
 --layout=reverse
 --info=inline
---height=90%
+--height=40%
 --multi
 --prompt='∼ '
 --pointer='▶'
