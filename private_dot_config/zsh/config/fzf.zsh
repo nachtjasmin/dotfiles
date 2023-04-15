@@ -16,5 +16,6 @@ export FZF_DEFAULT_OPTS="
 --pointer='▶'
 --marker='✓'
 --bind '?:toggle-preview'
+--color=$(darkman get || 'dark')
 "
 
