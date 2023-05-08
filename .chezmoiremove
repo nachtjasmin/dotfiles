@@ -1,2 +1,3 @@
 .config/zsh/*.zsh
 .config/zsh/config/git.zsh
+.config/yay/
