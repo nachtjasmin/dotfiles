@@ -16,6 +16,6 @@ export FZF_DEFAULT_OPTS="
 --pointer='▶'
 --marker='✓'
 --bind '?:toggle-preview'
---color=$(darkman get || 'dark')
+{{ if eq .chezmoi.os "linux" }}--color=$(darkman get){{ end -}}
 "
 
