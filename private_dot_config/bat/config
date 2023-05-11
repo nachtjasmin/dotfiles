@@ -24,6 +24,6 @@
 #--map-syntax "*.ino:C++"
 #--map-syntax ".ignore:Git Ignore"
 
---theme="Monokai Extended Bright"
+--theme="ansi"
 --map-syntax ".ignore:Git Ignore"
 --style="plain"
