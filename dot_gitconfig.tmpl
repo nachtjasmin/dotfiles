@@ -43,16 +43,17 @@
 [interactive]
 	diffFilter = delta --color-only
 [delta]
-	features = decorations
 	line-numbers = true
-	syntax-theme = "Monokai Extended Bright"
-[delta "interactive"]
-	keep-plus-minus-markers = false
-[delta "decorations"]
+	relative-paths = true
+	file-decoration-style = blue box
+	syntax-theme = none
 	commit-decoration-style = blue ol
-	commit-style = raw
-	file-style = omit
-	hunk-header-decoration-style = blue box
-	hunk-header-file-style = red
-	hunk-header-line-number-style = "#067a00"
-	hunk-header-style = file line-number syntax
+	hunk-header-style = line-number
+	hunk-header-decoration-style = ul
+	hunk-label = "line"
+	inline-hint-style = omit
+	minus-style = red
+	plus-style = green
+	plus-emph-style = green normal bold
+	minus-emph-style = red strike
+
