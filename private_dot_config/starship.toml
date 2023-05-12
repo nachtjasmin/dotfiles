@@ -7,6 +7,7 @@ $hostname\
 $container\
 $directory\
 $git_branch\
+$git_status\
 $git_commit\
 $git_state\
 $git_metrics\
@@ -37,13 +38,11 @@ style = "dimmed white"
 format = '[ $time ]($style) '
 
 [git_status]
-disabled = true
-
-[dotnet]
-disabled = true
-
-[golang]
-disabled = true
+format = '([\($ahead_behind\)]($style) )'
+diverged = "⇣$behind_count ⇡$ahead_count"
+ahead = "⇡$count"
+behind = "⇣$count"
+style = "bold purple"
 
 [nodejs]
 disabled = true
