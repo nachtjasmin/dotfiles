@@ -7,4 +7,15 @@ eval "$(sheldon --config-dir ~/.config/sheldon source)"
 eval "$(starship init zsh)"
 eval "$(direnv hook zsh)"
 eval "$(fnm env --use-on-cd)"
+
+# Enable the ssh-agent, which is especially useful for using Git inside a
+# Remote Container (VS Code). The shell foo is copied from the Arch Wiki:
+# https://wiki.archlinux.org/title/SSH_keys#ssh-agent
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    ssh-agent > "$XDG_RUNTIME_DIR/ssh-agent.env"
+fi
+if [[ ! -f "$SSH_AUTH_SOCK" ]]; then
+    source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
+fi
+
 unset LS_COLORS
