@@ -6,3 +6,4 @@ LICENSE
 {{ else }}
 Brewfile
 {{ end }}
+install.sh
