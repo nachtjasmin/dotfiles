@@ -32,10 +32,8 @@ style_user = "bold green"
 [directory]
 style = "bold blue"
 
-[time]
+[container]
 disabled = false
-style = "dimmed white"
-format = '[ $time ]($style) '
 
 [git_status]
 format = '([\($ahead_behind\)]($style) )'
