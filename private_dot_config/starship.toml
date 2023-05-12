@@ -45,8 +45,8 @@ behind = "⇣$count"
 style = "bold purple"
 
 [nodejs]
-disabled = true
+symbol = "nodejs "
+version_format = "v${major}"
 
-[java]
-disabled = true
-
+[python]
+symbol = "python "
