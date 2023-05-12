@@ -1,6 +1,16 @@
-{{- $email := promptString "Email address used for Git: " -}}
-{{- $fullName := promptString "Name used for Git: " -}}
+{{- $codespaces := env "CODESPACES" | not | not -}}
+{{- $remoteContainer := env "REMOTE_CONTAINERS" | not | not -}}
+{{- $insideContainer := or $codespaces $remoteContainer }}
+sourceDir = {{ .chezmoi.sourceDir | quote }}
+
 [data]
-	name = {{ $fullName | quote }}
-    email = {{ $email | quote }}
+    codespaces = {{ $codespaces }}
+	container = {{ $insideContainer }}
+{{- if $insideContainer }}{{/* Non-interactive setup for containers */}}
+	name = "nachtjasmin"
+    email = "nachtjasmin@posteo.de"
+{{- else }}
+	name = {{ promptString "Git username:" | quote }}
+	email = {{ promptString "Git email address:" | quote }}
+{{- end }}
 	
