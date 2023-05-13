@@ -29,6 +29,7 @@ sudo dpkg -i fd.deb
 
 wget -O fnm.zip https://github.com/Schniz/fnm/releases/download/v{{ $VERSION_fnm }}/fnm-linux.zip
 unzip fnm.zip
+chmod +x fnm
 sudo mv fnm /usr/local/bin/fnm
 
 wget -O - https://github.com/junegunn/fzf/releases/download/{{ $VERSION_fzf }}/fzf-{{ $VERSION_fzf }}-linux_{{ .chezmoi.arch }}.tar.gz | tar -xz
