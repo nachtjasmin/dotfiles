@@ -1,6 +1,5 @@
 {{- if (eq .chezmoi.os "darwin") -}}
 #!/usr/bin/env bash
-
 if ! command -v brew &> /dev/null
 then
 	echo "Brew is not installed on the system, running the installer."
@@ -33,7 +32,7 @@ EOF
 )
 echo $packages | paru -S --needed --noconfirm -
 
-{{- else if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "ubuntu") -}}
+{{- else if and (eq .chezmoi.os "linux") (or (eq .chezmoi.osRelease.id "debian") (eq .chezmoi.osRelease.idLike "debian")) -}}
 #!/bin/bash
 set -e
 # We use only a small subset of the required tools and only install required stuff.
@@ -43,40 +42,23 @@ echo "Creating binary folder, might be overwritten by chezmoi afterwards."
 mkdir -p $HOME/.bin
 export PATH="$PATH:$HOME/.bin"
 
-if ! command -v zsh &> /dev/null; then
-  echo "Installing zsh and wget"
-  sudo apt-get update && sudo apt-get install -y zsh wget unzip
-fi
+packages=$(cat <<EOF | grep -v "^$" | grep -v "#" | tr "\n" " "
+  {{ template "apt-packages.tmpl" . }}
+EOF
+)
 
-if ! command -v starship &> /dev/null; then
-  echo "Installing starship"
-  sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --bin-dir ~/.bin
-fi
-
-if ! command -v sheldon &> /dev/null; then
-  echo "Installing sheldon for zsh management"
-  curl -fsSL https://rossmacarthur.github.io/install/crate.sh \
-    | bash -s -- --repo rossmacarthur/sheldon --to ~/.bin
-fi
+echo "Installing basic apt packages"
+{{ if eq .chezmoi.username "root" }}
+apt-get update && apt-get install -y $packages
+{{ else }}
+sudo apt-get update && sudo apt-get install -y $packages
+{{ end }}
 
 if ! [[ $SHELL == *"zsh"* ]]; then
   echo "Changing default shell to zsh"
   chsh -s $(which zsh)
 fi
 
-if ! command -v exa &> /dev/null; then
-  echo "Installing exa"
-  cd $(mktemp -d)
-  wget https://github.com/ogham/exa/releases/download/v0.10.1/exa-linux-x86_64-v0.10.1.zip -O exa.zip
-  unzip -o exa.zip
-  sudo mv -f bin/exa /usr/local/bin/exa
-fi
-
-# ripgrep is not working right now, this is a package error. For now, we skip it.
-echo "Installing additional packages with apt"
-sudo apt-get install -y bat
-
-echo "dotfiles successfully installed. Close the shell and afterwards, starship is going to greet you!"
 {{ end -}}
 
 {{/* vim: set filetype=bash: */}}

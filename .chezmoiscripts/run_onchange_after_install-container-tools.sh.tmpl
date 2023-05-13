@@ -1,0 +1,48 @@
+#!/bin/sh
+
+{{ if and .container (eq .chezmoi.os "linux") (or (eq .chezmoi.osRelease.id "debian") (eq .chezmoi.osRelease.idLike "debian")) }}
+{{- $VERSION_bat := "0.23.0" -}}
+{{- $VERSION_delta := "0.15.1" -}}
+{{- $VERSION_direnv := "2.32.2" -}}
+{{- $VERSION_exa := "0.10.1" -}}
+{{- $VERSION_fd := "8.7.0" -}}
+{{- $VERSION_fnm := "1.33.1" -}}
+{{- $VERSION_fzf := "0.40.0" -}}
+{{- $VERSION_ripgrep := "13.0.0" -}}
+{{- $VERSION_sd := "0.7.6" -}}
+{{- $VERSION_sheldon := "0.7.1" -}}
+{{- $VERSION_starship := "1.14.2" -}}
+
+cd $(mktemp -d);
+
+wget -O bat.deb https://github.com/sharkdp/bat/releases/download/v{{ $VERSION_bat }}/bat_{{ $VERSION_bat }}_{{ .chezmoi.arch }}.deb
+dpkg -i bat.deb
+
+wget -O /usr/local/bin/direnv https://github.com/direnv/direnv/releases/download/v{{ $VERSION_direnv }}/direnv.linux-{{ .chezmoi.arch }}
+
+wget -O exa.zip https://github.com/ogham/exa/releases/download/v{{ $VERSION_exa }}/exa-linux-x86_64-v{{ $VERSION_exa }}.zip
+unzip exa.zip
+mv bin/exa /usr/local/bin/exa
+
+wget -O fd.deb https://github.com/sharkdp/fd/releases/download/v{{ $VERSION_fd }}/fd_{{ $VERSION_fd }}_{{ .chezmoi.arch }}.deb
+dpkg -i fd.deb
+
+wget -O fnm.zip https://github.com/Schniz/fnm/releases/download/v{{ $VERSION_fnm }}/fnm-linux.zip
+unzip fnm.zip
+mv fnm /usr/local/bin/fnm
+
+wget -O - https://github.com/junegunn/fzf/releases/download/{{ $VERSION_fzf }}/fzf-{{ $VERSION_fzf }}-linux_{{ .chezmoi.arch }}.tar.gz | tar -xz
+mv fzf /usr/local/bin/fzf
+
+wget -O delta.deb https://github.com/dandavison/delta/releases/download/{{ $VERSION_delta }}/git-delta_{{ $VERSION_delta }}_{{ .chezmoi.arch }}.deb
+dpkg -i delta.deb
+
+wget -O rg.deb https://github.com/BurntSushi/ripgrep/releases/download/{{ $VERSION_ripgrep }}/ripgrep_{{ $VERSION_ripgrep }}_{{ .chezmoi.arch }}.deb
+dpkg -i rg.deb
+
+wget -O /usr/local/bin/sd https://github.com/chmln/sd/releases/download/v{{ $VERSION_sd }}/sd-v{{ $VERSION_sd }}-x86_64-unknown-linux-gnu
+
+wget -O - https://github.com/rossmacarthur/sheldon/releases/download/{{ $VERSION_sheldon }}/sheldon-{{ $VERSION_sheldon }}-x86_64-unknown-linux-musl.tar.gz | tar -xz
+mv sheldon /usr/local/bin/sheldon
+
+{{ end }}
