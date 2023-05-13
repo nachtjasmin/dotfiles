@@ -46,4 +46,7 @@ wget -O /usr/local/bin/sd https://github.com/chmln/sd/releases/download/v{{ $VER
 wget -O - https://github.com/rossmacarthur/sheldon/releases/download/{{ $VERSION_sheldon }}/sheldon-{{ $VERSION_sheldon }}-x86_64-unknown-linux-musl.tar.gz | tar -xz
 sudo mv sheldon /usr/local/bin/sheldon
 
+wget -O - https://github.com/starship/starship/releases/download/v{{ $VERSION_starship }}/starship-x86_64-unknown-linux-gnu.tar.gz | tar -xz
+sudo mv starship /usr/local/bin/starship
+
 {{ end }}
