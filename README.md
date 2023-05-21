@@ -10,7 +10,7 @@ To install chezmoi, copy the dotfiles and purge the binary afterwards (it'll ins
 the package managers), run the following command:
 
 ```shell
-sh -c "$(curl -fsLS chezmoi.io/get)" -- init --purge-binary --apply chloe-the-catgirl
+sh -c "$(curl -fsLS chezmoi.io/get)" -- -b "${HOME}/.local/bin/" init --purge-binary --apply chloe-the-catgirl
 ```
 
 ### Servers
@@ -18,7 +18,7 @@ sh -c "$(curl -fsLS chezmoi.io/get)" -- init --purge-binary --apply chloe-the-ca
 Servers do not need the Git configuration, but do benefit from the installation of several tools.
 
 ```shell
-sh -c "$(curl -fsLS chezmoi.io/get)" -- init --promptBool "Target is server=true" --apply chloe-the-catgirl
+sh -c "$(curl -fsLS chezmoi.io/get)" -- -b "${HOME}/.local/bin/" init --promptBool "Target is server=true" --apply chloe-the-catgirl
 ```
 
 ### Visual Studio Code / Codespaces
