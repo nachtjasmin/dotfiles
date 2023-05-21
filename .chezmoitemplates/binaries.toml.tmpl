@@ -1,0 +1,77 @@
+[[packages]]
+name = "bat"
+version = "0.23.0"
+type = "archive"
+url = "https://github.com/sharkdp/bat/releases/download/v$VERSION/bat-v$VERSION-x86_64-unknown-linux-gnu.tar.gz"
+wildcard = "**/bat"
+stripComponents = 1
+
+[[packages]]
+name = "delta"
+version = "0.15.1"
+type = "archive"
+url = "https://github.com/dandavison/delta/releases/download/$VERSION/delta-$VERSION-x86_64-unknown-linux-gnu.tar.gz"
+wildcard = "**/delta"
+stripComponents = 1
+
+[[packages]]
+name = "direnv"
+version = "2.32.2"
+type = "file"
+url = "https://github.com/direnv/direnv/releases/download/v$VERSION/direnv.linux-{{ .chezmoi.arch }}"
+
+[[packages]]
+name = "exa"
+version = "0.10.1"
+type = "archive"
+url = "https://github.com/ogham/exa/releases/download/v$VERSION/exa-linux-x86_64-v$VERSION.zip"
+stripComponents = 1
+
+[[packages]]
+name = "fd"
+version = "8.7.0"
+type = "archive"
+url = "https://github.com/sharkdp/fd/releases/download/v$VERSION/fd-v$VERSION-x86_64-unknown-linux-gnu.tar.gz"
+wildcard = "**/fd"
+stripComponents = 1
+
+[[packages]]
+name = "fnm"
+version = "1.33.1"
+type = "archive"
+url = "https://github.com/Schniz/fnm/releases/download/v$VERSION/fnm-linux.zip"
+
+[[packages]]
+name = "fzf"
+version = "0.40.0"
+type = "archive"
+url = "https://github.com/junegunn/fzf/releases/download/$VERSION/fzf-$VERSION-linux_{{ .chezmoi.arch }}.tar.gz"
+wildcard = "fzf"
+
+[[packages]]
+name = "rg"
+version = "13.0.0"
+type = "archive"
+url = "https://github.com/BurntSushi/ripgrep/releases/download/$VERSION/ripgrep-$VERSION-x86_64-unknown-linux-musl.tar.gz"
+wildcard = "**/rg"
+stripComponents = 1
+
+[[packages]]
+name = "sd"
+version = "0.7.6"
+type = "file"
+url = "https://github.com/chmln/sd/releases/download/v$VERSION/sd-v$VERSION-x86_64-unknown-linux-gnu"
+
+[[packages]]
+name = "sheldon"
+version = "0.7.1"
+type = "archive"
+url = "https://github.com/rossmacarthur/sheldon/releases/download/$VERSION/sheldon-$VERSION-x86_64-unknown-linux-musl.tar.gz"
+wildcard = "sheldon"
+
+[[packages]]
+name = "starship"
+version = "1.14.2"
+type = "archive"
+url = "https://github.com/starship/starship/releases/download/v$VERSION/starship-x86_64-unknown-linux-gnu.tar.gz"
+wildcard = "starship"

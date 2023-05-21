@@ -1,6 +1,7 @@
 #!/bin/sh
+set -eu
 
-{{ if and .container (eq .chezmoi.os "linux") (or (eq .chezmoi.osRelease.id "debian") (eq .chezmoi.osRelease.idLike "debian")) }}
+{{ if and .container (eq .chezmoi.os "linux") }}
 {{- $VERSION_bat := "0.23.0" -}}
 {{- $VERSION_delta := "0.15.1" -}}
 {{- $VERSION_direnv := "2.32.2" -}}
@@ -13,40 +14,30 @@
 {{- $VERSION_sheldon := "0.7.1" -}}
 {{- $VERSION_starship := "1.14.2" -}}
 
-cd $(mktemp -d);
+{{ $packages := (fromToml (includeTemplate "binaries.toml.tmpl" .)).packages }}
+{{ range $packages }}
+# begin package: {{ .name }}
+TMPDIR=$(mktemp -d --suffix -{{ .name }})
+cd $TMPDIR;
+echo "installing {{ .name }} ({{ .version}}..."
+wget --quiet -O download {{ replace "$VERSION" .version .url }}
+{{ if eq .type "archive" }}
+	{{ if hasSuffix ".tar.gz" .url }}
+tar --extract {{ if hasKey . "stripComponents" }}--strip-components {{ .stripComponents }}{{ end }} --file download --gzip --wildcards "{{ .wildcard }}"
+	{{ else }}
+unzip -j download
+	{{ end }}
 
-wget -O bat.deb https://github.com/sharkdp/bat/releases/download/v{{ $VERSION_bat }}/bat_{{ $VERSION_bat }}_{{ .chezmoi.arch }}.deb
-sudo dpkg -i bat.deb
+chmod +x {{ .name }}
+mv {{ .name }} ~/.local/bin/
 
-wget -O /usr/local/bin/direnv https://github.com/direnv/direnv/releases/download/v{{ $VERSION_direnv }}/direnv.linux-{{ .chezmoi.arch }}
+{{ else if (eq .type "file") }}
+chmod +x download
+mv download ~/.local/bin/{{ .name }}
+{{ end }}
 
-wget -O exa.zip https://github.com/ogham/exa/releases/download/v{{ $VERSION_exa }}/exa-linux-x86_64-v{{ $VERSION_exa }}.zip
-unzip exa.zip
-sudo mv bin/exa /usr/local/bin/exa
-
-wget -O fd.deb https://github.com/sharkdp/fd/releases/download/v{{ $VERSION_fd }}/fd_{{ $VERSION_fd }}_{{ .chezmoi.arch }}.deb
-sudo dpkg -i fd.deb
-
-wget -O fnm.zip https://github.com/Schniz/fnm/releases/download/v{{ $VERSION_fnm }}/fnm-linux.zip
-unzip fnm.zip
-chmod +x fnm
-sudo mv fnm /usr/local/bin/fnm
-
-wget -O - https://github.com/junegunn/fzf/releases/download/{{ $VERSION_fzf }}/fzf-{{ $VERSION_fzf }}-linux_{{ .chezmoi.arch }}.tar.gz | tar -xz
-sudo mv fzf /usr/local/bin/fzf
-
-wget -O delta.deb https://github.com/dandavison/delta/releases/download/{{ $VERSION_delta }}/git-delta_{{ $VERSION_delta }}_{{ .chezmoi.arch }}.deb
-sudo dpkg -i delta.deb
-
-wget -O rg.deb https://github.com/BurntSushi/ripgrep/releases/download/{{ $VERSION_ripgrep }}/ripgrep_{{ $VERSION_ripgrep }}_{{ .chezmoi.arch }}.deb
-sudo dpkg -i rg.deb
-
-wget -O /usr/local/bin/sd https://github.com/chmln/sd/releases/download/v{{ $VERSION_sd }}/sd-v{{ $VERSION_sd }}-x86_64-unknown-linux-gnu
-
-wget -O - https://github.com/rossmacarthur/sheldon/releases/download/{{ $VERSION_sheldon }}/sheldon-{{ $VERSION_sheldon }}-x86_64-unknown-linux-musl.tar.gz | tar -xz
-sudo mv sheldon /usr/local/bin/sheldon
-
-wget -O - https://github.com/starship/starship/releases/download/v{{ $VERSION_starship }}/starship-x86_64-unknown-linux-gnu.tar.gz | tar -xz
-sudo mv starship /usr/local/bin/starship
+cd && rm -r $TMPDIR
+# end package: {{ .name }}
+{{ end }}
 
 {{ end }}
