@@ -7,3 +7,9 @@ LICENSE
 Brewfile
 {{ end }}
 install.sh
+
+{{ if .server }}
+.config/git/
+.gitconfig
+
+{{ end }}
