@@ -1,6 +1,14 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base"
+  "extends": ["config:base", ":automergeMinor"],
+  "reviewers": ["chloe-the-catgirl"],
+  "regexManagers": [
+    {
+      "fileMatch": ["binaries.toml.tmpl"],
+      "datasourceTemplate": "github-releases",
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>[a-z-]+?) depName=(?<depName>[^\\s]+?)(?: (lookupName|packageName)=(?<packageName>[^\\s]+?))?(?: versioning=(?<versioning>[^\\s]+?))?(?: registryUrl=(?<registryUrl>[^\\s]+?))?\\sversion = \"?(?<currentValue>.+?)\"?\\s"
+      ]
+    }
   ]
 }
