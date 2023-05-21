@@ -9,6 +9,7 @@ sourceDir = {{ .chezmoi.sourceDir | quote }}
 {{- if $insideContainer }}{{/* Non-interactive setup for containers */}}
 	name = "nachtjasmin"
 	email = "nachtjasmin@posteo.de"
+	server = false
 {{- else }}
 	{{ $server := promptBool "Target is server" false }}
 	server = {{ $server }}
