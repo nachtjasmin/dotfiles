@@ -4,13 +4,17 @@
 sourceDir = {{ .chezmoi.sourceDir | quote }}
 
 [data]
-    codespaces = {{ $codespaces }}
+	codespaces = {{ $codespaces }}
 	container = {{ $insideContainer }}
 {{- if $insideContainer }}{{/* Non-interactive setup for containers */}}
 	name = "nachtjasmin"
-    email = "nachtjasmin@posteo.de"
+	email = "nachtjasmin@posteo.de"
 {{- else }}
+	{{ $server := promptBool "Target is server" false }}
+	server = {{ $server }}
+	{{- if not $server }}
 	name = {{ promptString "Git username:" | quote }}
 	email = {{ promptString "Git email address:" | quote }}
+	{{ end }}
 {{- end }}
-	
+

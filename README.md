@@ -4,6 +4,8 @@ _Operating systems: macOS, Arch Linux, Ubuntu (partially)_
 
 ## Installation
 
+### Clients
+
 To install chezmoi, copy the dotfiles and purge the binary afterwards (it'll install itself using
 the package managers), run the following command:
 
@@ -11,13 +13,15 @@ the package managers), run the following command:
 sh -c "$(curl -fsLS chezmoi.io/get)" -- init --purge-binary --apply chloe-the-catgirl
 ```
 
-or with SSH (recommended for work machines):
+### Servers
+
+Servers do not need the Git configuration, but do benefit from the installation of several tools.
 
 ```shell
-sh -c "$(curl -fsLS chezmoi.io/get)" -- init --ssh --purge-binary --apply chloe-the-catgirl
+sh -c "$(curl -fsLS chezmoi.io/get)" -- init --promptBool "Target is server=true" --apply chloe-the-catgirl
 ```
 
-## Visual Studio Code / Codespaces
+### Visual Studio Code / Codespaces
 
 These dotfiles are prepared for the usage with GitHub Codespaces or Remote Containers
 in general. If you add the following lines to the `settings.json`, the dotfiles are installed

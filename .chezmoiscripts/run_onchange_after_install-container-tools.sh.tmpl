@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eu
 
-{{ if and .container (eq .chezmoi.os "linux") }}
+{{ if and (or .server .container) (eq .chezmoi.os "linux") }}
 {{- $VERSION_bat := "0.23.0" -}}
 {{- $VERSION_delta := "0.15.1" -}}
 {{- $VERSION_direnv := "2.32.2" -}}
