@@ -1,5 +1,6 @@
 README.md
 LICENSE
+renovate.json
 
 {{ if eq .chezmoi.os "darwin" }}
 .config/yay/config.json
