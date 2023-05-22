@@ -19,7 +19,7 @@ set -eu
 # begin package: {{ .name }}
 TMPDIR=$(mktemp -d --suffix -{{ .name }})
 cd $TMPDIR;
-echo "installing {{ .name }} ({{ .version}}..."
+echo "installing {{ .name }} ({{ .version}}) to $HOME/.local/bin/"
 wget --quiet -O download {{ replace "$VERSION" .version .url }}
 {{ if eq .type "archive" }}
 	{{ if hasSuffix ".tar.gz" .url }}
@@ -29,11 +29,11 @@ unzip -j download
 	{{ end }}
 
 chmod +x {{ .name }}
-mv {{ .name }} ~/.local/bin/
+mv {{ .name }} $HOME/.local/bin/
 
 {{ else if (eq .type "file") }}
 chmod +x download
-mv download ~/.local/bin/{{ .name }}
+mv download $HOME/.local/bin/{{ .name }}
 {{ end }}
 
 cd && rm -r $TMPDIR
