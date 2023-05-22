@@ -28,4 +28,4 @@ jobs:
       - name: "chezmoi init and apply"
         run: sh -c "$(curl -fsLS chezmoi.io/get)" -- -b .local/bin/ init --promptBool "Target is server=true" --apply chloe-the-catgirl
       - name: chezmoi data
-        run: '"$HOME/.local/bin/chezmoi" data'
+        run: /root/.local/bin/chezmoi data
