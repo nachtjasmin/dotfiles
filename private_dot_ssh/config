@@ -1,0 +1,13 @@
+Host mastoweb
+	Hostname 78.47.77.8
+	User jasmin
+
+Host shells.chaosdorf.de
+	User nachtjasmin
+
+Host chloe.uber.space
+	User chloe
+
+Host queergrp.uber.space
+	User queergrp
+
