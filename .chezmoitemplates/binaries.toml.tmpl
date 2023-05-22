@@ -7,6 +7,12 @@ wildcard = "**/bat"
 stripComponents = 1
 
 [[packages]]
+name = "chezmoi"
+version = "2.33.6"
+type = "file"
+url = "https://github.com/twpayne/chezmoi/releases/download/v2.33.6/chezmoi-linux-{{ .chezmoi.arch }}"
+
+[[packages]]
 name = "delta"
 version = "0.15.1"
 type = "archive"
