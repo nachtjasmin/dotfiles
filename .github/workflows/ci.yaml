@@ -12,7 +12,7 @@ jobs:
       env:
         CODESPACES: true
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - run: ./install.sh
       - name: chezmoi data
         run: '"$HOME/.local/bin/chezmoi" data'
@@ -24,7 +24,7 @@ jobs:
     steps:
       - name: "Install dependencies"
         run: apt-get update && apt-get install -yy wget curl sudo
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: "chezmoi init and apply"
         run: sh -c "$(curl -fsLS chezmoi.io/get)" -- -b .local/bin/ init --promptBool "Target is server=true" --apply --source .
       - name: chezmoi data
