@@ -1,17 +1,4 @@
-{{- if (eq .chezmoi.os "darwin") -}}
-#!/usr/bin/env bash
-if ! command -v brew &> /dev/null
-then
-	echo "Brew is not installed on the system, running the installer."
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-fi
-
-brew bundle install \
-  --no-lock \
-  --file=/dev/stdin <<EOF
-{{ template "Brewfile.tmpl" . }}
-EOF
-{{- else if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "arch") -}}
+{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "arch") -}}
 #!/usr/bin/zsh
 
 if ! command -v paru &> /dev/null

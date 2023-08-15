@@ -58,8 +58,3 @@ apply = ["defer", "fpath"]
 [plugins.clipboard]
 github = "zpm-zsh/clipboard"
 
-{{ if eq .chezmoi.os "darwin" }}
-[plugins.brew-site-functions]
-local = '/usr/local/share/zsh/site-functions'
-apply = ["fpath"]
-{{ end }}
