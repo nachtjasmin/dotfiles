@@ -8,6 +8,7 @@ alias hx=helix
 
 # Directories
 alias ..="cd .."
+alias .="$EDITOR ."
 
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
