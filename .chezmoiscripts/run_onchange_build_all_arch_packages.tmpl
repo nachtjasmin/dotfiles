@@ -1,0 +1,22 @@
+#!/bin/bash
+# Builds all arch packages.
+# Based on: https://disconnected.systems/blog/archlinux-meta-packages/#git-repository-and-scripting-the-build
+#
+# Hashes of the packages:
+# nachtjasmin-base: {{ include "arch-packages/nachtjasmin-base/PKGBUILD" | sha256sum }}
+# nachtjasmin-desktop: {{ include "arch-packages/nachtjasmin-desktop/PKGBUILD" | sha256sum }}
+# nachtjasmin-devel-base: {{ include "arch-packages/nachtjasmin-devel-base/PKGBUILD" | sha256sum }}
+# nachtjasmin-devel-go: {{ include "arch-packages/nachtjasmin-devel-go/PKGBUILD" | sha256sum }}
+# nachtjasmin-devel-web: {{ include "arch-packages/nachtjasmin-devel-web/PKGBUILD" | sha256sum }}
+#
+set -uo pipefail
+trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
+
+PACKAGES=${@:-{{ .chezmoi.sourceDir }}/arch-packages/nachtjasmin*}
+
+for package in $PACKAGES; do
+    cd "$package"
+    rm -f *.pkg.tar.xz
+    paru -U
+    cd -
+done

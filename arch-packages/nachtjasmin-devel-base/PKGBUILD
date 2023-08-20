@@ -1,0 +1,33 @@
+# Maintainer: nachtjasmin <nachtjasmin@posteo.de>
+pkgname=nachtjasmin-devel-base
+pkgver=0.0.1
+pkgrel=1
+pkgdesc="Jasmins development base config"
+arch=('any')
+url="https://github.com/nachtjasmin/dotfiles/arch-packages/"
+license=('OSL-3.0')
+depends=(
+    'direnv'
+    'exa'
+    'fd'
+    'just'
+    'watchexec'
+
+    # Editors
+    'helix'
+    'vim'
+    'visual-studio-code-bin'
+
+    # Containers
+    'podman'
+    'podman-compose'
+
+    # Git foo
+    'git'
+    'git-extras'
+    'git-delta'
+    'git-lfs'
+)
+conflicts=(
+    'entr' # not longer used by me
+)

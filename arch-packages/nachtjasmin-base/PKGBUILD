@@ -1,0 +1,27 @@
+# Maintainer: nachtjasmin <nachtjasmin@posteo.de>
+pkgname=nachtjasmin-base
+pkgver=0.0.1
+pkgrel=1
+pkgdesc="Base system configuration for nachtjasmin's systems"
+arch=('any')
+url="https://github.com/nachtjasmin/dotfiles/arch-packages/"
+license=('OSL-3.0')
+depends=(
+    'bat'
+    'broot'
+    'chezmoi'
+    'exa'
+    'fd'
+    'fzf'
+    'helix'
+    'less'
+    'ripgrep'
+    'sd'
+    'sheldon'
+    'starship'
+    'wget'
+    'zsh'
+
+    # System stuff
+    'systemd-boot-pacman-hook'
+)

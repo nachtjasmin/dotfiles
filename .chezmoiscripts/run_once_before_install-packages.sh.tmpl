@@ -13,12 +13,6 @@ then
   rm -rf paru # force needed, because of .git folder
 fi
 
-packages=$(cat <<EOF | grep -v "^$" | grep -v "#"
-{{ template "arch-packages.tmpl" . }}
-EOF
-)
-echo $packages | paru -S --needed --noconfirm -
-
 {{- else if and (eq .chezmoi.os "linux") (or (eq .chezmoi.osRelease.id "debian") (eq .chezmoi.osRelease.idLike "debian")) -}}
 #!/bin/bash
 set -e

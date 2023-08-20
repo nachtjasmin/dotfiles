@@ -1,6 +1,7 @@
 README.md
 LICENSE
 renovate.json
+arch-packages/
 
 {{ if eq .chezmoi.os "darwin" }}
 .config/yay/config.json

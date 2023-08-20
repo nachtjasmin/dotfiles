@@ -1,0 +1,13 @@
+# Maintainer: nachtjasmin <nachtjasmin@posteo.de>
+pkgname=nachtjasmin-devel-web
+pkgver=0.0.1
+pkgrel=1
+pkgdesc="Jasmins development config (webdev)"
+arch=('any')
+url="https://github.com/nachtjasmin/dotfiles/arch-packages/"
+license=('OSL-3.0')
+depends=(
+    'httpie'
+    'wget'
+    'fnm' # node version manager
+)

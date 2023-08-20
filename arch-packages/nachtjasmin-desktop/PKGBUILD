@@ -1,0 +1,27 @@
+# Maintainer: nachtjasmin <nachtjasmin@posteo.de>
+pkgname=nachtjasmin-desktop
+pkgver=0.0.1
+pkgrel=1
+pkgdesc="Desktop system configuration for nachtjasmin's systems"
+arch=('any')
+url="https://github.com/nachtjasmin/dotfiles/arch-packages/"
+license=('OSL-3.0')
+depends=(
+    'darkman'
+    'xclip'
+    'syncthing'
+
+    # Multimedia
+    'spotify'
+    'pipewire'
+    'pipewire-audio'
+    'noise-suppression-for-voice'
+
+    # Communication
+    'signal-desktop'
+
+    # Fonts
+    'ttf-apple-emoji'
+    'ttf-fira-code'
+    'ttf-iosevka-nerd'
+)
