@@ -34,7 +34,8 @@ format = '[$user]($style)'
 style = "bold blue"
 
 [hostname]
-format = '@[$hostname](bold) '
+format = ' on [$hostname](dimmed) '
+trim_at = '' # disable trimming
 
 [container]
 disabled = false
