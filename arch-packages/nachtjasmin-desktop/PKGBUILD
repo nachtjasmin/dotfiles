@@ -1,6 +1,6 @@
 # Maintainer: nachtjasmin <nachtjasmin@posteo.de>
 pkgname=nachtjasmin-desktop
-pkgver=0.0.1
+pkgver=0.0.2
 pkgrel=1
 pkgdesc="Desktop system configuration for nachtjasmin's systems"
 arch=('any')
@@ -24,4 +24,10 @@ depends=(
     'ttf-apple-emoji'
     'ttf-fira-code'
     'ttf-iosevka-nerd'
+
+    # Console
+    'kitty'
+)
+conflicts=(
+    'konsole'
 )
