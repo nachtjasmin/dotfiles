@@ -9,6 +9,8 @@
 # nachtjasmin-devel-base: {{ include "arch-packages/nachtjasmin-devel-base/PKGBUILD" | sha256sum }}
 # nachtjasmin-devel-go: {{ include "arch-packages/nachtjasmin-devel-go/PKGBUILD" | sha256sum }}
 # nachtjasmin-devel-web: {{ include "arch-packages/nachtjasmin-devel-web/PKGBUILD" | sha256sum }}
+# nachtjasmin-devel-devops: {{ include "arch-packages/nachtjasmin-devel-devops/PKGBUILD" | sha256sum }}
+# nachtjasmin-app-typst: {{ include "arch-packages/nachtjasmin-app-typst/PKGBUILD" | sha256sum }}
 #
 set -uo pipefail
 trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
