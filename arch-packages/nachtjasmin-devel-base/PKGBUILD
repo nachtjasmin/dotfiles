@@ -27,6 +27,8 @@ depends=(
     'git-extras'
     'git-delta'
     'git-lfs'
+
+    'github-cli'
 )
 conflicts=(
     'entr' # not longer used by me
