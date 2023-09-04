@@ -8,8 +8,6 @@ url="https://github.com/nachtjasmin/dotfiles/arch-packages/"
 license=('OSL-3.0')
 depends=(
     'direnv'
-    'exa'
-    'fd'
     'just'
     'watchexec'
 
