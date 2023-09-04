@@ -12,7 +12,7 @@ depends=(
     'bottom'
     'chezmoi'
     'dog'
-    'exa'
+    'eza'
     'fd'
     'fzf'
     'helix'
@@ -27,4 +27,7 @@ depends=(
 
     # System stuff
     'systemd-boot-pacman-hook'
+)
+conflicts=(
+    'exa'
 )
