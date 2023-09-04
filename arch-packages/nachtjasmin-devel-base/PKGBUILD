@@ -1,6 +1,6 @@
 # Maintainer: nachtjasmin <nachtjasmin@posteo.de>
 pkgname=nachtjasmin-devel-base
-pkgver=0.0.1
+pkgver=2023.09.04+611fe7b
 pkgrel=1
 pkgdesc="Jasmins development base config"
 arch=('any')
@@ -10,6 +10,7 @@ depends=(
     'direnv'
     'just'
     'watchexec'
+    'lefthook'
 
     # Editors
     'helix'

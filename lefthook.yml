@@ -1,0 +1,8 @@
+pre-commit:
+  parallel: true
+  commands:
+    bump_versions:
+      glob: "**/PKGBUILD"
+      stage_fixed: true
+      run: |
+        sd "pkgver=.+" "pkgver=$(date '+%Y.%m.%d')+$(git rev-parse --short HEAD)" {staged_files}
