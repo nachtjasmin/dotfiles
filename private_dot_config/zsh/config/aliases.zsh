@@ -18,5 +18,5 @@ alias mkdir='mkdir -p'
 alias grep='rg'
 alias dd='dd status=progress'
 alias cat='bat'
-alias ls='eza'
+alias ls='eza --hyperlink'
 alias ip="ip --color=auto"
