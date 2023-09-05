@@ -20,3 +20,8 @@ alias dd='dd status=progress'
 alias cat='bat'
 alias ls='eza --hyperlink'
 alias ip="ip --color=auto"
+
+# Use SSH kitten if we're inside a kitty session.
+if [[ $TERM == "xterm-kitty" ]]; then
+  alias ssh="kitty +kitten ssh"
+fi
