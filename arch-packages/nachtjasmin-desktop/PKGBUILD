@@ -1,6 +1,6 @@
 # Maintainer: nachtjasmin <nachtjasmin@posteo.de>
 pkgname=nachtjasmin-desktop
-pkgver=0.0.2
+pkgver=2023.09.09+4dd10a8
 pkgrel=1
 pkgdesc="Desktop system configuration for nachtjasmin's systems"
 arch=('any')
@@ -26,7 +26,11 @@ depends=(
 
     # Console
     'kitty'
+
+    # Browser
+    'librewolf-bin'
 )
 conflicts=(
     'konsole'
+    'firefox'
 )
