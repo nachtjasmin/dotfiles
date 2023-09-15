@@ -20,7 +20,7 @@ PACKAGES=${@:-{{ .chezmoi.sourceDir }}/arch-packages/nachtjasmin*}
 for package in $PACKAGES; do
     cd "$package"
     rm -f *.pkg.tar.xz
-    paru -U
+    paru -U --nochroot
     cd -
 done
 {{ end }}
