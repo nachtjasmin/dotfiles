@@ -31,12 +31,11 @@ type = "file"
 url = "https://github.com/direnv/direnv/releases/download/$VERSION/direnv.linux-{{ .chezmoi.arch }}"
 
 [[packages]]
-name = "exa"
-# renovate: datasource=github-releases depName=ogham/exa
-version = "v0.10.1"
+name = "eza"
+# renovate: datasource=github-releases depName=eza-community/eza
+version = "v0.12.0"
 type = "archive"
-url = "https://github.com/ogham/exa/releases/download/$VERSION/exa-linux-x86_64-$VERSION.zip"
-stripComponents = 1
+url = "https://github.com/eza-community/eza/releases/download/$VERSION/eza_x86_64-unknown-linux-gnu.tar.gz"
 
 [[packages]]
 name = "fd"
