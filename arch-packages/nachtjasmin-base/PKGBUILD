@@ -1,6 +1,6 @@
 # Maintainer: nachtjasmin <nachtjasmin@posteo.de>
 pkgname=nachtjasmin-base
-pkgver=0.0.1
+pkgver=2023.09.26+f674a64
 pkgrel=1
 pkgdesc="Base system configuration for nachtjasmin's systems"
 arch=('any')
@@ -24,6 +24,9 @@ depends=(
     'starship'
     'wget'
     'zsh'
+
+    'ouch'     # swiss knife for extracting archives
+    'ccase'    # converting between different casings (snake case, camel case, etc.)
 
     # System stuff
     'systemd-boot-pacman-hook'
