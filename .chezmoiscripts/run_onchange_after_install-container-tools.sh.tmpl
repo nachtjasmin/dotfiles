@@ -2,17 +2,6 @@
 set -eu
 
 {{ if and (or .server .container) (eq .chezmoi.os "linux") }}
-{{- $VERSION_bat := "0.23.0" -}}
-{{- $VERSION_delta := "0.15.1" -}}
-{{- $VERSION_direnv := "2.32.2" -}}
-{{- $VERSION_exa := "0.10.1" -}}
-{{- $VERSION_fd := "8.7.0" -}}
-{{- $VERSION_fnm := "1.33.1" -}}
-{{- $VERSION_fzf := "0.40.0" -}}
-{{- $VERSION_ripgrep := "13.0.0" -}}
-{{- $VERSION_sd := "0.7.6" -}}
-{{- $VERSION_sheldon := "0.7.1" -}}
-{{- $VERSION_starship := "1.14.2" -}}
 
 {{ $packages := (fromToml (includeTemplate "binaries.toml.tmpl" .)).packages }}
 {{ range $packages }}
