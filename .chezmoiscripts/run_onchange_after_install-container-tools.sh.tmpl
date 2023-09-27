@@ -23,7 +23,7 @@ echo "installing {{ .name }} ({{ .version}}) to $HOME/.local/bin/"
 wget --quiet -O download {{ replace "$VERSION" .version .url }}
 {{ if eq .type "archive" }}
 	{{ if hasSuffix ".tar.gz" .url }}
-tar --extract {{ if hasKey . "stripComponents" }}--strip-components {{ .stripComponents }}{{ end }} --file download --gzip --wildcards "{{ .wildcard }}"
+tar --extract {{ if hasKey . "stripComponents" }}--strip-components {{ .stripComponents }}{{ end }} --file download --gzip {{ if hasKey . "wildcard" -}} --wildcards "{{ .wildcard }}" {{- end }}
 	{{ else }}
 unzip -j download
 	{{ end }}
