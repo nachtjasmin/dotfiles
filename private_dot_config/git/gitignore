@@ -79,3 +79,6 @@ $RECYCLE.BIN/
 
 # Syncthing conflicts
 *.sync-conflict*
+
+# direnv (https://direnv.net)
+.direnv/
