@@ -1,6 +1,5 @@
+#!/bin/bash
 {{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "arch") -}}
-#!/usr/bin/zsh
-
 if ! command -v paru &> /dev/null
 then
   echo "paru is not installed on system, trying to install it"
@@ -14,7 +13,6 @@ then
 fi
 
 {{- else if and (eq .chezmoi.os "linux") (or (eq .chezmoi.osRelease.id "debian") (eq .chezmoi.osRelease.idLike "debian")) -}}
-#!/bin/bash
 set -e
 # We use only a small subset of the required tools and only install required stuff.
 # Most probably, ubuntu is only used on servers, I never set it up as main system.
