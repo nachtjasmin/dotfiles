@@ -1,6 +1,6 @@
 # Maintainer: nachtjasmin <nachtjasmin@posteo.de>
 pkgname=nachtjasmin-devel-base
-pkgver=2023.09.04+611fe7b
+pkgver=2023.10.16+40eadf5
 pkgrel=1
 pkgdesc="Jasmins development base config"
 arch=('any')
@@ -32,3 +32,4 @@ depends=(
 conflicts=(
     'entr' # not longer used by me
 )
+groups=('nachtjasmin')

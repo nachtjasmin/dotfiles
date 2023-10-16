@@ -1,6 +1,6 @@
 # Maintainer: nachtjasmin <nachtjasmin@posteo.de>
 pkgname=nachtjasmin-audio
-pkgver=2023.10.16+9454541
+pkgver=2023.10.16+40eadf5
 pkgrel=1
 pkgdesc="Audio setup using pipewire"
 arch=('any')
@@ -13,3 +13,4 @@ depends=(
     'pipewire-pulse'
     'noise-suppression-for-voice'
 )
+groups=('nachtjasmin')

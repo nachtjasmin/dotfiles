@@ -1,6 +1,6 @@
 # Maintainer: nachtjasmin <nachtjasmin@posteo.de>
 pkgname=nachtjasmin-devel-go
-pkgver=0.0.1
+pkgver=2023.10.16+40eadf5
 pkgrel=1
 pkgdesc="Jasmins development config (Go)"
 arch=('any')
@@ -13,3 +13,4 @@ depends=(
     'goland-jre'
     'golangci-lint'
 )
+groups=('nachtjasmin')

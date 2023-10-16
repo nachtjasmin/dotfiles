@@ -1,6 +1,6 @@
 # Maintainer: nachtjasmin <nachtjasmin@posteo.de>
 pkgname=nachtjasmin-base
-pkgver=2023.09.28+bcbdac5
+pkgver=2023.10.16+40eadf5
 pkgrel=1
 pkgdesc="Base system configuration for nachtjasmin's systems"
 arch=('any')
@@ -32,4 +32,4 @@ depends=(
     'systemd-boot-pacman-hook'
 )
 conflicts=(
-)
+)groups=('nachtjasmin')

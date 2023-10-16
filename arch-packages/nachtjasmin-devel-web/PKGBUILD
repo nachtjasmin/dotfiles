@@ -1,6 +1,6 @@
 # Maintainer: nachtjasmin <nachtjasmin@posteo.de>
 pkgname=nachtjasmin-devel-web
-pkgver=2023.09.08+597c456
+pkgver=2023.10.16+40eadf5
 pkgrel=1
 pkgdesc="Jasmins development config (webdev)"
 arch=('any')
@@ -13,3 +13,4 @@ depends=(
     'typescript-language-server'
     'bun-bin' # alternative to node.js and related tools, looks fancy uwu
 )
+groups=('nachtjasmin')
