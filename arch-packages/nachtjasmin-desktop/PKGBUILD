@@ -1,6 +1,6 @@
 # Maintainer: nachtjasmin <nachtjasmin@posteo.de>
 pkgname=nachtjasmin-desktop
-pkgver=2023.09.09+4dd10a8
+pkgver=2023.10.16+9454541
 pkgrel=1
 pkgdesc="Desktop system configuration for nachtjasmin's systems"
 arch=('any')
@@ -12,9 +12,6 @@ depends=(
 
     # Multimedia
     'spotify'
-    'pipewire'
-    'pipewire-audio'
-    'noise-suppression-for-voice'
 
     # Communication
     'signal-desktop'
