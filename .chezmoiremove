@@ -2,3 +2,5 @@
 .config/zsh/config/git.zsh
 .config/yay/
 .gitignore
+.local/share/dark-mode.d/kde-konsole-theme.sh
+.local/share/light-mode.d/kde-konsole-theme.sh
