@@ -82,3 +82,8 @@ $RECYCLE.BIN/
 
 # direnv (https://direnv.net)
 .direnv/
+
+# I am using direnv even in projects where I don't wanna commit my .envrc, as it simplifies my local
+# development and might use helpers that are probably not available everywhere.
+.envrc
+.env
