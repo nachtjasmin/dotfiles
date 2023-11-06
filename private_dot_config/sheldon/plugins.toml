@@ -11,7 +11,7 @@
 # See the documentation for more https://github.com/rossmacarthur/sheldon#readme
 
 [templates]
-defer = "{% for file in files %}zsh-defer source \"{{`{{ file }}`}}\"\n{% endfor %}"
+defer = "{{ hooks | get: \"pre\" | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks | get: \"post\" | nl }}"
 
 [plugins]
 
@@ -39,7 +39,6 @@ use = [
 
 [plugins.custom-config]
 local = '~/.config/zsh/config'
-use = ["*.zsh"]
 
 [plugins.custom-completions]
 local = '~/.config/zsh/suggestions'
