@@ -2,10 +2,10 @@
 name = "bat"
 # renovate: datasource=github-releases depName=sharkdp/bat
 version = "v0.24.0"
-type = "archive"
+type = "archive-file"
 url = "https://github.com/sharkdp/bat/releases/download/$VERSION/bat-$VERSION-x86_64-unknown-linux-gnu.tar.gz"
-wildcard = "**/bat"
 stripComponents = 1
+path = "bat"
 
 [[packages]]
 name = "chezmoi"
@@ -18,10 +18,10 @@ url = "https://github.com/twpayne/chezmoi/releases/download/$VERSION/chezmoi-lin
 name = "delta"
 # renovate: datasource=github-releases depName=dandavison/delta
 version = "0.16.5"
-type = "archive"
+type = "archive-file"
 url = "https://github.com/dandavison/delta/releases/download/$VERSION/delta-$VERSION-x86_64-unknown-linux-gnu.tar.gz"
-wildcard = "**/delta"
 stripComponents = 1
+path = "delta"
 
 [[packages]]
 name = "direnv"
@@ -34,40 +34,43 @@ url = "https://github.com/direnv/direnv/releases/download/$VERSION/direnv.linux-
 name = "eza"
 # renovate: datasource=github-releases depName=eza-community/eza
 version = "v0.16.1"
-type = "archive"
+type = "archive-file"
 url = "https://github.com/eza-community/eza/releases/download/$VERSION/eza_x86_64-unknown-linux-gnu.tar.gz"
+stripComponents = 1
+path = "eza"
 
 [[packages]]
 name = "fd"
 # renovate: datasource=github-releases depName=sharkdp/fd
 version = "v8.7.1"
-type = "archive"
+type = "archive-file"
 url = "https://github.com/sharkdp/fd/releases/download/$VERSION/fd-$VERSION-x86_64-unknown-linux-gnu.tar.gz"
-wildcard = "**/fd"
+path = "fd"
 stripComponents = 1
 
 [[packages]]
 name = "fnm"
 # renovate: datasource=github-releases depName=Schniz/fnm
 version = "v1.35.1"
-type = "archive"
+type = "archive-file"
 url = "https://github.com/Schniz/fnm/releases/download/$VERSION/fnm-linux.zip"
+path = "fnm"
 
 [[packages]]
 name = "fzf"
 # renovate: datasource=github-releases depName=junegunn/fzf
 version = "0.44.1"
-type = "archive"
+type = "archive-file"
 url = "https://github.com/junegunn/fzf/releases/download/$VERSION/fzf-$VERSION-linux_{{ .chezmoi.arch }}.tar.gz"
-wildcard = "fzf"
+path = "fzf"
 
 [[packages]]
 name = "rg"
 # renovate: datasource=github-releases depName=BurntSushi/ripgrep
 version = "13.0.0"
-type = "archive"
+type = "archive-file"
 url = "https://github.com/BurntSushi/ripgrep/releases/download/$VERSION/ripgrep-$VERSION-x86_64-unknown-linux-musl.tar.gz"
-wildcard = "**/rg"
+path = "rg"
 stripComponents = 1
 
 [[packages]]
@@ -77,18 +80,20 @@ version = "v0.7.6"
 type = "file"
 url = "https://github.com/chmln/sd/releases/download/$VERSION/sd-$VERSION-x86_64-unknown-linux-gnu"
 
+{{ if eq (env "shell") (lookPath "zsh") }}
 [[packages]]
 name = "sheldon"
 # renovate: datasource=github-releases depName=rossmacarthur/sheldon
 version = "0.7.4"
-type = "archive"
+type = "archive-file"
 url = "https://github.com/rossmacarthur/sheldon/releases/download/$VERSION/sheldon-$VERSION-x86_64-unknown-linux-musl.tar.gz"
-wildcard = "sheldon"
+path = "sheldon"
+{{ end }}
 
 [[packages]]
 name = "starship"
 # renovate: datasource=github-releases depName=starship/starship
 version = "v1.16.0"
-type = "archive"
+type = "archive-file"
 url = "https://github.com/starship/starship/releases/download/$VERSION/starship-x86_64-unknown-linux-gnu.tar.gz"
-wildcard = "starship"
+path = "starship"
