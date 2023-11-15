@@ -1,6 +1,6 @@
 # Maintainer: nachtjasmin <nachtjasmin@posteo.de>
 pkgname=nachtjasmin-base
-pkgver=2023.10.16+40eadf5
+pkgver=2023.11.15+1505b92
 pkgrel=1
 pkgdesc="Base system configuration for nachtjasmin's systems"
 arch=('any')
@@ -14,6 +14,7 @@ depends=(
     'dog'
     'eza'
     'fd'
+    'fish'
     'fzf'
     'helix'
     'jq'
@@ -23,7 +24,6 @@ depends=(
     'sheldon'
     'starship'
     'wget'
-    'zsh'
 
     'ouch'     # swiss knife for extracting archives
     'ccase'    # converting between different casings (snake case, camel case, etc.)
@@ -32,4 +32,6 @@ depends=(
     'systemd-boot-pacman-hook'
 )
 conflicts=(
-)groups=('nachtjasmin')
+    'zsh'
+)
+groups=('nachtjasmin')
