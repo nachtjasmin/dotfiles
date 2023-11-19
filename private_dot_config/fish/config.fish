@@ -14,7 +14,6 @@ alias cat bat
 alias grep rg
 alias mkdir 'mkdir -p'
 alias dd 'dd status=progress'
-alias ls 'eza --hyperlink'
 alias ip 'ip --color=auto'
 alias cz chezmoi
 
@@ -42,28 +41,10 @@ end
 # Exports
 set -gx EDITOR helix
 
-# Zoxide
-set -Ux _ZO_FZF_OPTS "--no-sort --height=30% --exit-0 --select-1 --bind=ctrl-z:ignore"
-
 if not status is-interactive
 	return
 end
 
-if type -q eza
-	alias ls 'eza -lFhT --group-directories-first --level 1'
-end
-
-if type -q zoxide
-	zoxide init --cmd v fish | source
-end
-
-if type -q direnv
-	direnv hook fish | source
-end
-
-if type -q fnm
-	fnm env --use-on-cd | source
-end
-
-# gazorby/fifc configuration
-set -Ux fifc_editor "$EDITOR"
+command -q eza; and alias ls 'eza -lFhT --group-directories-first --level 1'
+command -q direnv; and direnv hook fish | source
+command -q fnm; and fnm env --use-on-cd | source
