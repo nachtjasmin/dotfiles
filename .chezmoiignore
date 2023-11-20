@@ -3,6 +3,10 @@ LICENSE
 renovate.json
 arch-packages/
 
+{{ if eq .chezmoi.osRelease.id "fedora" }}
+.config/pipewire/
+{{ end }}
+
 {{ if eq .chezmoi.os "darwin" }}
 .config/yay/config.json
 {{ else }}
