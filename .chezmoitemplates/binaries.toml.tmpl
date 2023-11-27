@@ -80,6 +80,7 @@ version = "v1.0.0"
 type = "archive-file"
 url = "https://github.com/chmln/sd/releases/download/$VERSION/sd-$VERSION-x86_64-unknown-linux-musl.tar.gz"
 path = "sd"
+stripComponents = 1
 
 {{ if eq (env "shell") (lookPath "zsh") }}
 [[packages]]
