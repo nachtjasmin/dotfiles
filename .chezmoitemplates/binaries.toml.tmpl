@@ -77,8 +77,9 @@ stripComponents = 1
 name = "sd"
 # renovate: datasource=github-releases depName=chmln/sd
 version = "v1.0.0"
-type = "file"
-url = "https://github.com/chmln/sd/releases/download/$VERSION/sd-$VERSION-x86_64-unknown-linux-gnu"
+type = "archive-file"
+url = "https://github.com/chmln/sd/releases/download/$VERSION/sd-$VERSION-x86_64-unknown-linux-musl.tar.gz"
+path = "sd"
 
 {{ if eq (env "shell") (lookPath "zsh") }}
 [[packages]]
