@@ -1,0 +1,45 @@
+#!/usr/bin/env fish
+
+set git_default_remote "origin"
+set git_default_branch (git symbolic-ref --short refs/remotes/$git_default_remote/HEAD)
+if test $status -gt 0
+    # Updates the head automatically
+    git remote set-head origin -a
+
+    # Inform me about that and exit.
+    printf "The default HEAD for the remote $git_default_remote was refreshed. Execute the script again."
+    exit 1
+end
+
+set git_default_branch (string replace "$git_default_remote/" '' "$git_default_branch")
+set git_current_branch (git rev-parse --abbrev-ref HEAD)
+
+set git_log_params \
+    '-n' '50' \
+    '--no-merges' \
+    '--oneline' \
+    '--color=always' \
+    '--grep="fixup!"' '--invert-grep'
+
+# fzf man page:
+#   A placeholder expression starting with + flag will be replaced to the space-separated list of the
+#   selected lines (or the current line if no selection was made) individually quoted.
+set fzf_params \
+    '--ansi' \
+     '--preview' \
+     'git show --color=always {+1}'
+
+if test (count $argv) -gt 0
+    set --append fzf_params "--select-1" "--query" $argv
+else if test "$git_default_branch" != "$git_current_branch";
+    set --append git_log_params "HEAD...$git_default_branch"
+end
+
+set -l chosen_commit_line (git log $git_log_params | fzf $fzf_params)
+if test -z "$chosen_commit_line"
+    echo "no commit chosen :("
+    exit 1
+end
+
+set -l chosen_commit (string sub --length 7 "$chosen_commit_line")
+git commit --fixup $chosen_commit
