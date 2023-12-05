@@ -1,6 +1,6 @@
 pkgbase = nachtjasmin-devel-base
 	pkgdesc = Jasmins development base config
-	pkgver = 2023.10.16+40eadf5
+	pkgver = 2023.12.05+99c6753
 	pkgrel = 1
 	url = https://github.com/nachtjasmin/dotfiles/arch-packages/
 	arch = any

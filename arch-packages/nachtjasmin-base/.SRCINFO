@@ -1,6 +1,6 @@
 pkgbase = nachtjasmin-base
 	pkgdesc = Base system configuration for nachtjasmin's systems
-	pkgver = 2023.11.15+1505b92
+	pkgver = 2023.12.05+99c6753
 	pkgrel = 1
 	url = https://github.com/nachtjasmin/dotfiles/arch-packages/
 	arch = any

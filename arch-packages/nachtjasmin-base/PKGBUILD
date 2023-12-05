@@ -1,6 +1,6 @@
 # Maintainer: nachtjasmin <nachtjasmin@posteo.de>
 pkgname=nachtjasmin-base
-pkgver=2023.11.15+1505b92
+pkgver=2023.12.05+99c6753
 pkgrel=1
 pkgdesc="Base system configuration for nachtjasmin's systems"
 arch=('any')
