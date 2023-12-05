@@ -19,7 +19,7 @@ set git_log_params \
     '--no-merges' \
     '--oneline' \
     '--color=always' \
-    '--grep="fixup!"' '--invert-grep'
+    '--grep' 'fixup!' '--invert-grep'
 
 # fzf man page:
 #   A placeholder expression starting with + flag will be replaced to the space-separated list of the
