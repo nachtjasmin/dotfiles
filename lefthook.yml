@@ -1,8 +1,17 @@
 pre-commit:
-  parallel: true
   commands:
     bump_versions:
       glob: "**/PKGBUILD"
       stage_fixed: true
       run: |
         sd "pkgver=.+" "pkgver=$(date '+%Y.%m.%d')+$(git rev-parse --short HEAD)" {staged_files}
+
+    update_srcinfo:
+      glob: "**/PKGBUILD"
+      run: |
+        for f in {staged_files}; do
+          pushd $(dirname $f)
+          makepkg --printsrcinfo > .SRCINFO
+          git add .SRCINFO
+          popd
+        done
