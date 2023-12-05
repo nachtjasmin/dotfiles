@@ -1,0 +1,15 @@
+pkgbase = nachtjasmin-devel-devops
+	pkgdesc = Devops packages for nachtjasmin's systems
+	pkgver = 2023.10.16+40eadf5
+	pkgrel = 1
+	url = https://github.com/nachtjasmin/dotfiles/arch-packages/
+	arch = any
+	groups = nachtjasmin
+	license = OSL-3.0
+	depends = kubectl
+	depends = helm
+	depends = kluctl
+	depends = terraform
+	depends = ansible
+
+pkgname = nachtjasmin-devel-devops

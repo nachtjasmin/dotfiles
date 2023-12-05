@@ -19,11 +19,11 @@ NewsOnUpgrade
 # commit changes made to PKGBUILDS
 SaveChanges
 
-# Use a local repository (useful for sharing stuff with my devices)
-LocalRepo
-
 # Build packages in a chroot for reproducability
 Chroot
 
 [bin]
 FileManager = helix
+
+[chezmoi_arch]
+Path = {{ .chezmoi.sourceDir }}/arch-packages/

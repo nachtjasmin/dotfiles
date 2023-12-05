@@ -1,0 +1,15 @@
+pkgbase = nachtjasmin-devel-go
+	pkgdesc = Jasmins development config (Go)
+	pkgver = 2023.10.16+40eadf5
+	pkgrel = 1
+	url = https://github.com/nachtjasmin/dotfiles/arch-packages/
+	arch = any
+	groups = nachtjasmin
+	license = OSL-3.0
+	depends = go
+	depends = gofumpt
+	depends = goland
+	depends = goland-jre
+	depends = golangci-lint
+
+pkgname = nachtjasmin-devel-go

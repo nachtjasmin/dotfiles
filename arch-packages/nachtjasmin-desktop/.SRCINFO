@@ -1,0 +1,21 @@
+pkgbase = nachtjasmin-desktop
+	pkgdesc = Desktop system configuration for nachtjasmin's systems
+	pkgver = 2023.10.16+40eadf5
+	pkgrel = 1
+	url = https://github.com/nachtjasmin/dotfiles/arch-packages/
+	arch = any
+	groups = nachtjasmin
+	license = OSL-3.0
+	depends = darkman
+	depends = syncthing
+	depends = spotify
+	depends = signal-desktop
+	depends = ttf-apple-emoji
+	depends = ttf-fira-code
+	depends = ttf-iosevka-nerd
+	depends = kitty
+	depends = librewolf-bin
+	conflicts = konsole
+	conflicts = firefox
+
+pkgname = nachtjasmin-desktop
