@@ -4,3 +4,4 @@
 **/src/
 repo/
 *.log
+*.pkg.tar.zst
