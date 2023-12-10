@@ -1,5 +1,5 @@
 Host mastoweb
-	Hostname 78.47.77.8
+	Hostname 2a01:4f8:c012:c31e::1
 	User jasmin
 
 Host shells.chaosdorf.de
