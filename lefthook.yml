@@ -15,3 +15,7 @@ pre-commit:
           git add .SRCINFO
           popd
         done
+
+    format_fish_scripts:
+      files: rg --files-with-matches --line-regexp "#!/usr/bin/env fish"
+      run: fish_indent --write {files}
