@@ -1,3 +1,4 @@
+#!/usr/bin/env fish
 starship init fish | source
 
 # Disable syntax highlighting, except for errors
