@@ -35,15 +35,15 @@ end
 abbr --add dotdot --regex '^\.\.+$' --function multicd
 
 # SSH kitten if inside kitty session
-if test "$TERM" = "xterm-kitty"
-	alias ssh "kitty +kitten ssh"
+if test "$TERM" = xterm-kitty
+    alias ssh "kitty +kitten ssh"
 end
 
 # Exports
 set -gx EDITOR hx
 
 if not status is-interactive
-	return
+    return
 end
 
 command -q eza; and alias ls 'eza -lFhT --group-directories-first --level 1'
