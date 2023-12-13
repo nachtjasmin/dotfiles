@@ -24,7 +24,9 @@
 	undo = "reset --soft HEAD~1"
 	amend = "commit --amend --no-edit"
 	unstash = "stash pop"
+	get-default-branch = "symbolic-ref --short refs/remotes/origin/HEAD"
 	push-with-mr = "push -o merge_request.create -o merge_request.remove_source_branch"
+	finish = "!git rebase -i $(git merge-base HEAD $(git get-default-branch))"
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
