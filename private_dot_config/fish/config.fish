@@ -39,7 +39,7 @@ if test "$TERM" = "xterm-kitty"
 end
 
 # Exports
-set -gx EDITOR helix
+set -gx EDITOR hx
 
 if not status is-interactive
 	return
