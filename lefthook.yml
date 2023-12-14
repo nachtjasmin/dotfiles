@@ -1,3 +1,5 @@
+remote:
+  git_url: git@github.com:nachtjasmin/githooks
 pre-commit:
   parallel: true
   commands:
@@ -6,7 +8,6 @@ pre-commit:
       stage_fixed: true
       run: |
         sd "pkgver=.+" "pkgver=$(date '+%Y.%m.%d')+$(git rev-parse --short HEAD)" {staged_files}
-
     update_srcinfo:
       glob: "**/PKGBUILD"
       run: |
@@ -16,7 +17,6 @@ pre-commit:
           git add .SRCINFO
           popd
         done
-
     format_fish_scripts:
       glob: "{*.fish,dot_local/bin/*}"
       run: fish_indent --write {staged_files}
