@@ -1,4 +1,5 @@
 pre-commit:
+  parallel: true
   commands:
     bump_versions:
       glob: "**/PKGBUILD"
@@ -17,5 +18,5 @@ pre-commit:
         done
 
     format_fish_scripts:
-      files: rg --files-with-matches --line-regexp "#!/usr/bin/env fish"
-      run: fish_indent --write {files}
+      glob: "{*.fish,dot_local/bin/*}"
+      run: fish_indent --write {staged_files}
