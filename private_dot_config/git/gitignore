@@ -87,3 +87,7 @@ $RECYCLE.BIN/
 # development and might use helpers that are probably not available everywhere.
 .envrc
 .env
+
+# Local lefthook configuration
+/lefthook-local.yml
+/.lefthook-local/
