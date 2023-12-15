@@ -1,16 +1,12 @@
 #!/usr/bin/env fish
-
 if not set -f jira_prefix (git config jira.prefix)
     read --prompt-str "JIRA prefix: " --function jira_prefix
     set -f jira_prefix (string upper $jira_prefix)
     git config jira.prefix $jira_prefix
 end
-
 read --prompt-str "Ticket number: " jira_id
 read --prompt-str "Summary: " jira_summary
-
 set jira_summary (string join '-' $jira_summary)
 set jira_summary (string replace -a ' ' '-' $jira_summary)
 set jira_summary (string lower $jira_summary)
-
-git switch --create "feature/$jira_prefix-$jira_id-$jira_summary"
+git switch --create "feature/JO-$jira_prefix-$jira_id-$jira_summary"
