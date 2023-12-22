@@ -27,6 +27,7 @@
 	get-default-branch = "symbolic-ref --short refs/remotes/origin/HEAD"
 	push-with-mr = "push -o merge_request.create -o merge_request.remove_source_branch"
 	finish = "!git rebase -i $(git merge-base HEAD $(git get-default-branch))"
+	slog="log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f

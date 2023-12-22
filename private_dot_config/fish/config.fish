@@ -20,6 +20,7 @@ alias cz chezmoi
 
 # Abbreviations
 abbr nah 'git nah'
+abbr glog 'git slog'
 
 # Consequent naming for helix editor (it's hx on fedora, helix on arch)
 command -q helix; and alias hx helix
