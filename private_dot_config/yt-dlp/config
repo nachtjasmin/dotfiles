@@ -1,0 +1,38 @@
+# Log each downloaded file
+--download-archive downloaded.txt
+
+# Define output format
+--output '%(extractor_key)s/%(title)S.%(ext)s'
+
+# Prefer free formats (if same quality)
+--prefer-free-formats
+
+# Download the best video format, but all audio streams
+--format bestvideo+mergeall[vcodec=none]
+
+# Use .part files unless finished
+--part
+
+# Use .mkv as default container
+--merge-output-format mkv
+
+# Download subtitles
+--write-subs
+--sub-format srt/vtt/best
+--sub-langs all,-live-chat
+--convert-subs srt
+
+# Embed everything into the container
+--embed-subs
+--embed-thumbnail
+--embed-metadata
+--embed-chapters
+--embed-info-json
+--xattrs
+
+# Add chapters to skip sponsors
+--sponsorblock-mark sponsor
+
+# Allow multiple streams in the same container
+--video-multistreams
+--audio-multistreams
