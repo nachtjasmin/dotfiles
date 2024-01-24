@@ -18,5 +18,6 @@ pre-commit:
           popd
         done
     format_fish_scripts:
+      stage_fixed: true
       glob: "{*.fish,dot_local/bin/*}"
       run: fish_indent --write {staged_files}
