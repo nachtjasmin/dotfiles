@@ -4,9 +4,18 @@ if not set -f jira_prefix (git config jira.prefix)
     set -f jira_prefix (string upper $jira_prefix)
     git config jira.prefix $jira_prefix
 end
-read --prompt-str "Ticket number: " jira_id
-read --prompt-str "Summary: " jira_summary
-set jira_summary (string join '-' $jira_summary)
-set jira_summary (string replace -a ' ' '-' $jira_summary)
-set jira_summary (string lower $jira_summary)
-git switch --create "feature/JO-$jira_prefix-$jira_id-$jira_summary"
+if not set -f jira_pat (git config jira.pat)
+    xdg-open "https://ats.anexia-it.com/secure/ViewProfile.jspa?selectedTab=com.atlassian.pats.pats-plugin:jira-user-personal-access-tokens"
+    exit 1
+end
+set jira_id (gum input --prompt "$jira_prefix-" --char-limit=5 --header="Please enter the JIRA ticket number" --placeholder="0000")
+or exit
+set ticket_type (gum choose --limit=1 --header="Choose the ticket type" "feature" "hotfix" "chore")
+or exit
+set jira_summary (curl --silent -X GET "https://ats.anexia-it.com/rest/api/2/issue/$jira_prefix-$jira_id" -H "Authorization: Bearer $jira_pat" | jq -r '.fields.summary')
+or exit
+set jira_summary_slug (string join '-' $jira_summary)
+set jira_summary_slug (string replace -a ' ' '-' $jira_summary_slug)
+set jira_summary_slug (string lower $jira_summary_slug)
+git switch --create "$ticket_type/JO-$jira_prefix-$jira_id-$jira_summary_slug" origin/main
+git commit --allow-empty --no-verify -m "$jira_prefix-$jira_id: $jira_summary" -m "Closes $jira_prefix-$jira_id"
