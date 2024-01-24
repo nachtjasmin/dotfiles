@@ -17,5 +17,8 @@ or exit
 set jira_summary_slug (string join '-' $jira_summary)
 set jira_summary_slug (string replace -a ' ' '-' $jira_summary_slug)
 set jira_summary_slug (string lower $jira_summary_slug)
-git switch --create "$ticket_type/JO-$jira_prefix-$jira_id-$jira_summary_slug" origin/main
+set branch_prefix JO-
+set should_add_prefix (gum confirm "Add the 'JO' prefix to the branch?")
+or set branch_prefix ""
+git switch --create "$ticket_type/$branch_prefix$jira_prefix-$jira_id-$jira_summary_slug" origin/main
 git commit --allow-empty --no-verify -m "$jira_prefix-$jira_id: $jira_summary" -m "Closes $jira_prefix-$jira_id"
