@@ -10,7 +10,7 @@ if not set -f jira_pat (git config jira.pat)
 end
 set jira_id (gum input --prompt "$jira_prefix-" --char-limit=5 --header="Please enter the JIRA ticket number" --placeholder="0000")
 or exit
-set ticket_type (gum choose --limit=1 --header="Choose the ticket type" "feature" "hotfix" "chore")
+set ticket_type (gum choose --limit=1 --header="Choose the ticket type" "feature" "hotfix" "chore" "bug")
 or exit
 set jira_summary (curl --silent -X GET "https://ats.anexia-it.com/rest/api/2/issue/$jira_prefix-$jira_id" -H "Authorization: Bearer $jira_pat" | jq -r '.fields.summary')
 or exit
