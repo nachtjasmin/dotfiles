@@ -47,6 +47,6 @@ if not status is-interactive
     return
 end
 
-command -q eza; and alias ls 'eza -lFhT --group-directories-first --level 1'
+command -q eza; and alias ls 'eza -lhT --group-directories-first --level 1'
 command -q direnv; and direnv hook fish | source
 command -q fnm; and fnm env --use-on-cd | source
