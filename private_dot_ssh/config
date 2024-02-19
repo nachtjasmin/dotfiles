@@ -1,3 +1,7 @@
+# Always add alternative SSH keys to the running agent, definitely useful
+# for not having to enter the same password the whole time.
+AddKeysToAgent yes
+
 # Include all subconfigs which might not be tracked by chezmoi
 Include config.d/*
 
