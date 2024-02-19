@@ -20,5 +20,7 @@ set jira_summary_slug (string lower $jira_summary_slug)
 set branch_prefix JO-
 set should_add_prefix (gum confirm "Add the 'JO' prefix to the branch?")
 or set branch_prefix ""
-git switch --create "$ticket_type/$branch_prefix$jira_prefix-$jira_id-$jira_summary_slug" origin/main
-git commit --allow-empty --no-verify -m "$jira_prefix-$jira_id: $jira_summary" -m "Closes $jira_prefix-$jira_id"
+set git_branch_name (gum input --width 0 --header "Name of the Git branch" --value "$ticket_type/$branch_prefix$jira_prefix-$jira_id-$jira_summary_slug")
+or exit 1
+git switch --create $git_branch_name origin/main
+git commit --allow-empty --no-verify -m "$jira_prefix-$jira_id: $jira_summary"
