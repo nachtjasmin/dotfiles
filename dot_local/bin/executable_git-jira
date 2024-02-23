@@ -6,6 +6,7 @@ if not set -f jira_prefix (git config jira.prefix)
 end
 if not set -f jira_pat (git config jira.pat)
     xdg-open "https://ats.anexia-it.com/secure/ViewProfile.jspa?selectedTab=com.atlassian.pats.pats-plugin:jira-user-personal-access-tokens"
+    echo "jira.pat is not set, please create an access token and call 'git config jira.pat <value>' afterwards."
     exit 1
 end
 set jira_id (gum input --prompt "$jira_prefix-" --char-limit=5 --header="Please enter the JIRA ticket number" --placeholder="0000")
