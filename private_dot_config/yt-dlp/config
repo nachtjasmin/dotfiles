@@ -13,8 +13,8 @@
 # Use .part files unless finished
 --part
 
-# Use .mkv as default container
---merge-output-format mkv
+# Use .mkv as default container for videos
+--remux-video mkv
 
 # Download subtitles
 --write-subs
