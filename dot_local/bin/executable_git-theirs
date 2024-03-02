@@ -1,0 +1,7 @@
+#!/usr/bin/env fish
+
+for file in $argv
+    echo "Checking out their version for $file"
+    git checkout --theirs $file
+    git add $file
+end

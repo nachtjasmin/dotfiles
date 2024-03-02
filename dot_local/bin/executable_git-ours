@@ -1,0 +1,10 @@
+#!/usr/bin/env fish
+
+for file in $argv
+    echo "Using our version for $file"
+    git checkout --ours $file
+    git add $file
+end
+
+# git checkout --theirs $argv
+# git add $argv
