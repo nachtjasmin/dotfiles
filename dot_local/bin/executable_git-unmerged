@@ -1,0 +1,10 @@
+#!/usr/bin/env fish
+
+set -l unmanaged_files (git diff --name-only --diff-filter=U .)
+set -l prefix (git rev-parse --show-prefix)
+set -l prefix_length (string length $prefix)
+set -l prefix_length (math $prefix_length '+' 1)
+
+for s in $unmanaged_files
+    string sub -s $prefix_length $s
+end

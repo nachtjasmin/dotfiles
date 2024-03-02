@@ -1,0 +1,56 @@
+#!/usr/bin/env fish
+
+# Let's parse the custom arguments.
+# The base is usually our hometown version and the
+# incoming is the new merge. The output is printed to stdout.
+argparse h/help 'e/extension=+' 'base=+' 'incoming=+' 'output=' -- $argv
+or return
+
+if set -ql _flag_help
+    echo "git-merge-locales [-h|-help] --base base.json --incoming incoming.json"
+    return 0
+end
+
+# First, let's define the translation keys that are hometown-specific and should be copied as
+# is into the upstream translation file.
+set -f hometown_specific_translation_keys \
+    'de.test.hometown' \
+    setting_default_federation \
+    'federation.local_only.long' \
+    'federation.local_only.short' \
+    'federation.local_only.long' \
+    'federation.change' \
+    'federation.federated.long' \
+    'federation.federated.short' \
+    'status.local_only'
+set -f jq_json_merge_filter '
+	(.[0] |	with_entries(
+				select(
+					any($ARGS.positional[] == .key; .)
+				)
+			)
+		) * .[1]
+	'
+
+if test $_flag_e = json
+    # JSON files can be processed more easily with jq. And since
+    # it's also just a simple object, we don't have the same complexity as the YAML
+    # code.
+    #
+    # The jq command does the following:
+    #  1. It gets two files, namely our version and the new incoming version.
+    #  2. It takes our file, filters only the entries that match the above defined
+    #     list and merges it recursively with the incoming version.
+    #  3. Finally, the keys are sorted again to make the diffs predictable.
+    #  4. The whole output is written to the $current file.
+    set -f jq_output (command jq --sort-keys --slurp $jq_json_merge_filter $_flag_base $_flag_incoming --args -- $hometown_specific_translation_keys)
+    if test $status -ne 0
+        return $status
+    end
+end
+
+if not set -ql _flag_output
+    printf "%s\n" $jq_output
+else
+    printf "%s\n" $jq_output >$_flag_output
+end
