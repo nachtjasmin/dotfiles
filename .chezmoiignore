@@ -1,24 +1,13 @@
 README.md
 LICENSE
 renovate.json
+lefthook.yml
+install.sh
 
 # Ignore the local git configuration
 .config/git/local.conf
 
-{{ if eq .chezmoi.osRelease.id "fedora" }}
-.config/pipewire/
-{{ end }}
-
-{{ if eq .chezmoi.os "darwin" }}
-.config/yay/config.json
-{{ else }}
-Brewfile
-{{ end }}
-install.sh
-
 {{ if .server }}
 .config/git/
 .gitconfig
-
 {{ end }}
-lefthook.yml
