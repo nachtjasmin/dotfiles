@@ -1,7 +1,6 @@
 README.md
 LICENSE
 renovate.json
-arch-packages/
 
 # Ignore the local git configuration
 .config/git/local.conf
