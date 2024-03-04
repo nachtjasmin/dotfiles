@@ -7,8 +7,10 @@
 	editor = vim
 	excludesfile = "~/.config/git/gitignore"
 [push]
+	# Push the local branch to a remote with the same name.
 	default = current
 [fetch]
+	# Automatically prune obsolete stuff during fetch.
 	prune = true
 	prunetags = true
 [pull]
@@ -19,6 +21,8 @@
 	# Sort tags by date, not by name.
 	sort = "taggerdate"
 [rebase]
+	# Always use stashing and squashing for rebases, we don't want to
+	# mess up with some untracked files.
 	autostash = true
 	autosquash = true
 
