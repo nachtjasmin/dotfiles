@@ -1,5 +1,8 @@
-remote:
-  git_url: git@github.com:nachtjasmin/githooks
+remotes:
+  - git_url: git@github.com:nachtjasmin/githooks
+    configs:
+      - ensure-no-fixup-commits.yml
+      - remove-trailing-whitespace.yml
 pre-commit:
   parallel: true
   commands:
