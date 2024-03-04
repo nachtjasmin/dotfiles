@@ -21,6 +21,10 @@
 [rebase]
 	autostash = true
 	autosquash = true
+
+	# Also update stacked branches immediately.
+	# See also: https://andrewlock.net/working-with-stacked-branches-in-git-is-easier-with-update-refs/
+	updateRefs = true
 [alias]
 	nah = "!git reset --hard && git clean -df"
 	undo = "reset --soft HEAD~1"
