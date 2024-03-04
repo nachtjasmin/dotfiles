@@ -59,7 +59,7 @@ set title
 "-------- Auto commands -------"
 "automatically source the Vimrc file on save.
 augroup autosourcing
-   autocmd! 
+   autocmd!
    autocmd BufWritePost .vimrc source %
 augroup END
 
@@ -68,3 +68,9 @@ augroup END
 "make it easy to edit the vimrc file"
 nmap ,ev :tabedit $MYVIMRC<cr>
 nmap ,<space> :nohlsearch<cr>
+
+"-------- Custom fixes --------"
+
+"Always start on first line of git commit messages
+"Source: https://stackoverflow.com/a/26808971 (thanks @Spig - CC-BY-SA 3.0)
+autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
