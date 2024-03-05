@@ -1,0 +1,8 @@
+[".local/bin/broot"]
+type = "file"
+executable = true
+url = "https://dystroy.org/broot/download/x86_64-linux/broot"
+
+[".config/fish/completions/broot"]
+type = "file"
+url = "https://dystroy.org/broot/download/completion/broot.fish"
