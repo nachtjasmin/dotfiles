@@ -21,9 +21,7 @@ alias cz chezmoi
 # Abbreviations
 abbr nah 'git nah'
 abbr glog 'git slog'
-
-# Consequent naming for helix editor (it's hx on fedora, helix on arch)
-command -q helix; and alias hx helix
+abbr hx helix
 
 # List directory contents
 alias l 'ls -lah'
@@ -41,7 +39,7 @@ if test "$TERM" = xterm-kitty
 end
 
 # Exports
-set -gx EDITOR hx
+set -gx EDITOR helix
 
 if not status is-interactive
     return
