@@ -1,0 +1,10 @@
+[Unit]
+Description=Update dotfiles
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/chezmoi update
+
+[Install]
+WantedBy=default.target
