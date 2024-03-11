@@ -21,7 +21,14 @@ alias cz chezmoi
 # Abbreviations
 abbr nah 'git nah'
 abbr glog 'git slog'
-abbr hx helix
+
+# Helix as primary editor, always accessible via hx.
+if command -q helix
+    alias hx helix
+    set -gx EDITOR helix
+else
+    set -gx EDITOR hx
+end
 
 # List directory contents
 alias l 'ls -lah'
@@ -38,13 +45,11 @@ if test "$TERM" = xterm-kitty
     alias ssh "kitty +kitten ssh"
 end
 
-# Exports
-set -gx EDITOR helix
-
 if not status is-interactive
     return
 end
 
+# Exports
 command -q eza; and alias ls 'eza -lhT --group-directories-first --level 1'
 command -q direnv; and direnv hook fish | source
 command -q fnm; and fnm env --use-on-cd | source
