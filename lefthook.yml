@@ -3,6 +3,8 @@ remotes:
     configs:
       - ensure-no-fixup-commits.yml
       - remove-trailing-whitespace.yml
+      - format-yaml.yml
+
 pre-commit:
   parallel: true
   commands:
