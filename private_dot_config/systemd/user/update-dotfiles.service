@@ -4,7 +4,7 @@ After=network-online.target
 
 [Service]
 Type=oneshot
-ExecStart=%h/.local/bin/chezmoi update
+ExecStart=%h/.local/bin/chezmoi update --no-tty --keep-going
 
 [Install]
 WantedBy=default.target
