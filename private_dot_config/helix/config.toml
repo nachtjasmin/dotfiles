@@ -1,8 +1,43 @@
 theme = "papercolor-dark"
 
 [editor]
-line-number = "relative"
+# Actually, I don't like the mouse support. I barely use it and when I do it,
+# it's almost always by accident. So, let's get rid of it.
+mouse              = false
+middle-click-paste = false
+
+## Autocompletion changes ##
+#
+# - Don't apply those changes immediately to avoid unwanted changes
+# - Increase the trigger length from 2 to 3 to be on par with other editors
+preview-completion-insert = false
+completion-trigger-len    = 3
+
+# Display open buffers at the top of the editor.
+bufferline = "multiple"
+
+# Always display column rulers after 120 chars
+rulers = [120]
+
+# To be honest, I end up removing them in 80% of the cases. It's not worth it to
+# keep them, therefore I disable them.
+auto-pairs = false
 
 [editor.cursor-shape]
 normal = "block"
 select = "underline"
+
+[editor.file-picker]
+
+# I usually only use the .git/info/exclude for some local-only devtools.
+# Therefore, I'm highly interested in actually editing them, therefore those
+# should be displayed.
+git-exclude = false
+
+# Indent guides are useful as well, especially on stuff like SQL files. Let's
+# try them out, I can disable them again for certain languages later if I want
+# to.
+[editor.indent-guides]
+render = true
+character = "⸽" # Some characters that work well: "▏", "┆", "┊", "⸽"
+skip-levels = 1
