@@ -34,6 +34,10 @@ select = "underline"
 # should be displayed.
 git-exclude = false
 
+# Hidden files are actually common in all repositories, therefore I want to show
+# them by default.
+hidden = false
+
 # Indent guides are useful as well, especially on stuff like SQL files. Let's
 # try them out, I can disable them again for certain languages later if I want
 # to.
