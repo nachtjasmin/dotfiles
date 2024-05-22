@@ -1,0 +1,3 @@
+# Automatically resolve merge conflicts on go.sum files.
+# Credits: https://gabnotes.org/automatically-handle-git/
+go.sum merge=union

@@ -4,7 +4,10 @@
 	signingkey = "~/.ssh/id_ed25519.pub"
 [core]
 	autocrlf = input
+
+	# Use the global excludes and attributes.
 	excludesfile = "~/.config/git/gitignore"
+	attributesfile = "~/.config/git/gitattributes"
 [push]
 	# Push the local branch to a remote with the same name.
 	default = current
