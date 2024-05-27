@@ -17,6 +17,7 @@ $helm\
 $java\
 $nodejs\
 $python\
+$kubernetes\
 $terraform\
 $cmd_duration\
 $line_break\
@@ -53,3 +54,8 @@ version_format = "v${major}"
 
 [python]
 symbol = "python "
+
+[kubernetes]
+format = 'on [($cluster in )$namespace](blue) '
+disabled = false
+contexts = []
