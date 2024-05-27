@@ -1,7 +1,6 @@
 [[packages]]
 name = "bat"
-# renovate: datasource=github-releases depName=sharkdp/bat
-version = "v0.24.0"
+version = "{{ (gitHubLatestRelease "sharkdp/bat").TagName }}"
 type = "archive-file"
 url = "https://github.com/sharkdp/bat/releases/download/$VERSION/bat-$VERSION-x86_64-unknown-linux-gnu.tar.gz"
 stripComponents = 1
@@ -9,15 +8,13 @@ path = "bat"
 
 [[packages]]
 name = "chezmoi"
-# renovate: datasource=github-releases depName=twpayne/chezmoi
-version = "v2.48.1"
+version = "{{ (gitHubLatestRelease "twpayne/chezmoi").TagName }}"
 type = "file"
 url = "https://github.com/twpayne/chezmoi/releases/download/$VERSION/chezmoi-linux-{{ .chezmoi.arch }}"
 
 [[packages]]
 name = "delta"
-# renovate: datasource=github-releases depName=dandavison/delta
-version = "0.17.0"
+version = "{{ (gitHubLatestRelease "dandavison/delta").TagName }}"
 type = "archive-file"
 url = "https://github.com/dandavison/delta/releases/download/$VERSION/delta-$VERSION-x86_64-unknown-linux-gnu.tar.gz"
 stripComponents = 1
@@ -25,15 +22,13 @@ path = "delta"
 
 [[packages]]
 name = "direnv"
-# renovate: datasource=github-releases depName=direnv/direnv
-version = "v2.34.0"
+version = "{{ (gitHubLatestRelease "direnv/direnv").TagName }}"
 type = "file"
 url = "https://github.com/direnv/direnv/releases/download/$VERSION/direnv.linux-{{ .chezmoi.arch }}"
 
 [[packages]]
 name = "eza"
-# renovate: datasource=github-releases depName=eza-community/eza
-version = "v0.18.16"
+version = "{{ (gitHubLatestRelease "eza-community/eza").TagName }}"
 type = "archive-file"
 url = "https://github.com/eza-community/eza/releases/download/$VERSION/eza_x86_64-unknown-linux-gnu.tar.gz"
 stripComponents = 1
@@ -41,8 +36,7 @@ path = "eza"
 
 [[packages]]
 name = "fd"
-# renovate: datasource=github-releases depName=sharkdp/fd
-version = "v10.1.0"
+version = "{{ (gitHubLatestRelease "sharkdp/fd").TagName }}"
 type = "archive-file"
 url = "https://github.com/sharkdp/fd/releases/download/$VERSION/fd-$VERSION-x86_64-unknown-linux-gnu.tar.gz"
 path = "fd"
@@ -50,23 +44,21 @@ stripComponents = 1
 
 [[packages]]
 name = "fzf"
-# renovate: datasource=github-releases depName=junegunn/fzf
-version = "0.52.1"
+version = "{{ (gitHubLatestRelease "junegunn/fzf").TagName }}"
 type = "archive-file"
 url = "https://github.com/junegunn/fzf/releases/download/$VERSION/fzf-$VERSION-linux_{{ .chezmoi.arch }}.tar.gz"
 path = "fzf"
 
 [[packages]]
+{{ $lefthookVersion := (gitHubLatestRelease "evilmartians/lefthook").TagName }}
 name = "lefthook"
-# renovate: datasource=github-releases depName=evilmartians/lefthook
-version = "1.6.12"
+version = "{{ trimPrefix "v" $lefthookVersion }}"
 type = "file"
 url = "https://github.com/evilmartians/lefthook/releases/download/v$VERSION/lefthook_$VERSION_Linux_x86_64"
 
 [[packages]]
 name = "rg"
-# renovate: datasource=github-releases depName=BurntSushi/ripgrep
-version = "14.1.0"
+version = "{{ (gitHubLatestRelease "BurntSushi/ripgrep").TagName }}"
 type = "archive-file"
 url = "https://github.com/BurntSushi/ripgrep/releases/download/$VERSION/ripgrep-$VERSION-x86_64-unknown-linux-musl.tar.gz"
 path = "rg"
@@ -74,8 +66,7 @@ stripComponents = 1
 
 [[packages]]
 name = "sd"
-# renovate: datasource=github-releases depName=chmln/sd
-version = "v1.0.0"
+version = "{{ (gitHubLatestRelease "chmln/sd").TagName }}"
 type = "archive-file"
 url = "https://github.com/chmln/sd/releases/download/$VERSION/sd-$VERSION-x86_64-unknown-linux-musl.tar.gz"
 path = "sd"
@@ -83,15 +74,15 @@ stripComponents = 1
 
 [[packages]]
 name = "starship"
-# renovate: datasource=github-releases depName=starship/starship
-version = "v1.19.0"
+version = "{{ (gitHubLatestRelease "starship/starship").TagName }}"
 type = "archive-file"
 url = "https://github.com/starship/starship/releases/download/$VERSION/starship-x86_64-unknown-linux-gnu.tar.gz"
 path = "starship"
 
 [[packages]]
 name = "jj"
-version = "{{ (gitHubLatestTag "martinvonz/jj").Name }}"
+version = "{{ (gitHubLatestRelease "martinvonz/jj").TagName }}"
 type = "archive-file"
 url = "https://github.com/martinvonz/jj/releases/download/$VERSION/jj-$VERSION-x86_64-unknown-linux-musl.tar.gz"
 path = "jj"
+stripComponents = 1
