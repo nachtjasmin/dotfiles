@@ -106,3 +106,10 @@ version = "v1.19.0"
 type = "archive-file"
 url = "https://github.com/starship/starship/releases/download/$VERSION/starship-x86_64-unknown-linux-gnu.tar.gz"
 path = "starship"
+
+[[packages]]
+name = "jj"
+version = "{{ (gitHubLatestTag "martinvonz/jj").Name }}"
+type = "archive-file"
+url = "https://github.com/martinvonz/jj/releases/download/$VERSION/jj-$VERSION-x86_64-unknown-linux-musl.tar.gz"
+path = "jj"
