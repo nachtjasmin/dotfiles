@@ -1,0 +1,12 @@
+[Unit]
+Description=Clean Go cache folders
+
+[Service]
+Type=oneshot
+ExecStart=go clean -cache
+ExecStart=go clean -testcache
+ExecStart=go clean -modcache
+ExecStart=go clean -fuzzcache
+
+[Install]
+WantedBy=default.target

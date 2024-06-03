@@ -1,0 +1,9 @@
+[Unit]
+Description=Clean Go cache folders monthly
+
+[Timer]
+OnCalendar=monthly
+Persistent=true
+
+[Install]
+WantedBy=default.target
