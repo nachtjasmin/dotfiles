@@ -1,3 +1,5 @@
+# This config is based on: https://gist.github.com/thoughtpolice/8f2fd36ae17cd11b8e7bd93a70e31ad6
+
 [user]
 name = {{ .name | quote }}
 email = {{ .email | quote }}
@@ -36,21 +38,10 @@ label("node",
 )
 '''
 
-[colors]
-"node" = { bold = true }
-"node elided" = { fg = "bright black" }
-"node working_copy" = { fg = "green" }
-"node conflict" = { fg = "red" }
-"node immutable" = { fg = "bright cyan" }
-"node wip" = { fg = "yellow" }
-"node normal" = { bold = false }
-
-"normal change_id" = { bold = true, fg = "magenta" }
-"immutable change_id" = { bold = false, fg = "bright cyan" }
-
 [template-aliases]
 'format_short_signature(signature)' = '"<" ++ signature.email() ++ ">"'
-'format_timestamp(ts)' = '"[" ++ ts.ago() ++ "]"'
+'format_short_change_id(id)' = 'id.shortest(4)'
+'format_short_commit_id(id)' = 'id.shortest(7)'
 
 [aliases]
 d = [ "diff" ]
