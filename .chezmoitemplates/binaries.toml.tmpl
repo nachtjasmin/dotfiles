@@ -21,6 +21,13 @@ stripComponents = 1
 path = "delta"
 
 [[packages]]
+name = "diffedit3"
+version = "{{ (gitHubLatestRelease "ilyagr/diffedit3").TagName  }}"
+type = "archive-file"
+url = "https://github.com/ilyagr/diffedit3/releases/download/$VERSION/diffedit3-$VERSION-x86_64-unknown-linux-musl.tar.gz"
+path = "diffedit3"
+
+[[packages]]
 name = "direnv"
 version = "{{ (gitHubLatestRelease "direnv/direnv").TagName }}"
 type = "file"

@@ -1,0 +1,77 @@
+[user]
+name = {{ .name | quote }}
+email = {{ .email | quote }}
+
+[format]
+tree-level-conflicts = true
+
+[git]
+# https://github.com/martinvonz/jj/blob/main/docs/config.md#automatic-local-branch-creation
+auto-local-branch = false
+push-branch-prefix = "joster/push-"
+
+[merge-tools.difft]
+diff-args = ["--color-only", "$left", "$right"]
+
+[ui]
+default-command = "log"
+diff.tool = "delta"
+diff-editor = "diffedit3"
+log-synthetic-elided-nodes = true
+graph.style = "square"
+allow-filesets = true
+
+[templates]
+op_log_node = 'if(current_operation, "@", "◉")'
+log_node = '''
+label("node",
+  coalesce(
+    if(!self, label("elided", "⇋")),
+    if(current_working_copy, label("working_copy", "◉")),
+    if(conflict, label("conflict", "x")),
+    if(immutable, label("immutable", "◆")),
+    if(description.starts_with("wip: "), label("wip", "!")),
+    label("normal", "○")
+  )
+)
+'''
+
+[colors]
+"node" = { bold = true }
+"node elided" = { fg = "bright black" }
+"node working_copy" = { fg = "green" }
+"node conflict" = { fg = "red" }
+"node immutable" = { fg = "bright cyan" }
+"node wip" = { fg = "yellow" }
+"node normal" = { bold = false }
+
+"normal change_id" = { bold = true, fg = "magenta" }
+"immutable change_id" = { bold = false, fg = "bright cyan" }
+
+[template-aliases]
+'format_short_signature(signature)' = '"<" ++ signature.email() ++ ">"'
+'format_timestamp(ts)' = '"[" ++ ts.ago() ++ "]"'
+
+[aliases]
+d = [ "diff" ]
+s = [ "show", "--tool", "delta" ]
+h = [ "help" ]
+ws = [ "workspace" ]
+ll = [ "log", "-T", "builtin_log_detailed" ]
+goto = [ "edit" ]
+sl = ["log", "-r", "(trunk()..@):: | (trunk()..@)-"]
+remain = [ "rebase", "-d", "main@origin", "-s" ]
+bl = ["branch", "list"]
+gh-push = [ "git", "push", "--remote", "gh" ]
+open = [ "log", "-r", "open()" ]
+
+nom = [ "squash", "--into", "@", "--from" ]
+yeet = [ "squash", "--from", "@", "--into" ]
+
+[revset-aliases]
+'trunk()' = 'latest((present(main) | present(master)) & remote_branches())'
+'user(x)' = 'author(x) | committer(x)'
+'open()' = '(mine() ~ ::trunk()) ~ heads(empty())'
+'gh-pages' = 'ancestors(remote_branches(exact:"gh-pages"))'
+'wip' = 'description("wip: ")'
+'ready' = 'open() ~ (wip::)'
