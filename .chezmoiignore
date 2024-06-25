@@ -9,5 +9,6 @@ install.sh
 
 {{ if .server }}
 .config/git/
+.config/jj/
 .gitconfig
 {{ end }}
