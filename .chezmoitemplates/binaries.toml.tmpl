@@ -50,6 +50,13 @@ path = "fd"
 stripComponents = 1
 
 [[packages]]
+name = "flux"
+version = "{{ trimPrefix "v" ((gitHubLatestRelease "fluxcd/flux2").TagName) }}"
+type = "archive-file"
+url = "https://github.com/fluxcd/flux2/releases/download/v$VERSION/flux_$VERSION_linux_amd64.tar.gz"
+path = "flux"
+
+[[packages]]
 name = "fzf"
 version = "{{ (gitHubLatestRelease "junegunn/fzf").TagName }}"
 type = "archive-file"
