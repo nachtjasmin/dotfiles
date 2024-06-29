@@ -43,26 +43,17 @@ label("node",
 'format_short_commit_id(id)' = 'id.shortest(7)'
 
 [aliases]
-d = [ "diff" ]
-s = [ "show", "--tool", "delta" ]
-h = [ "help" ]
-ws = [ "workspace" ]
-ll = [ "log", "-T", "builtin_log_detailed" ]
 goto = [ "edit" ]
-sl = ["log", "-r", "(trunk()..@):: | (trunk()..@)-"]
-remain = [ "rebase", "-d", "main@origin", "-s" ]
-bl = ["branch", "list"]
-gh-push = [ "git", "push", "--remote", "gh" ]
-open = [ "log", "-r", "open()" ]
-
+ll = [ "log", "-T", "builtin_log_detailed" ]
 nom = [ "squash", "--into", "@", "--from" ]
+open = [ "log", "-r", "open()" ]
+remain = [ "rebase", "-d", "main@origin", "-s" ]sl = ["log", "-r", "(trunk()..@):: | (trunk()..@)-"]
 yeet = [ "squash", "--from", "@", "--into" ]
 
 [revset-aliases]
 'trunk()' = 'latest((present(main) | present(master)) & remote_branches())'
 'user(x)' = 'author(x) | committer(x)'
 'open()' = '(mine() ~ ::trunk()) ~ heads(empty())'
-'gh-pages' = 'ancestors(remote_branches(exact:"gh-pages"))'
 'wip' = 'description("wip: ")'
 'ready' = 'open() ~ (wip::)'
 
