@@ -6,11 +6,7 @@ $username\
 $hostname\
 $container\
 $directory\
-$git_branch\
-$git_status\
-$git_commit\
-$git_state\
-$git_metrics\
+$custom\
 $docker_context\
 $dotnet\
 $helm\
@@ -59,3 +55,35 @@ symbol = "python "
 format = 'on [($cluster in )$namespace](blue) '
 disabled = false
 contexts = []
+
+[custom.jj_change_id]
+command = "jj log -r@ -l1 --ignore-working-copy --no-graph -T 'self.change_id().shortest()'"
+style = "purple"
+when = "jj status --quiet"
+
+[custom.jj_change_state]
+command = '''
+jj log -r@ -l1 --ignore-working-copy --no-graph --color always  -T '
+  separate(" ",
+    if(empty, "empty"),
+    if(conflict, "conflict"),
+    if(divergent, "divergent"),
+    if(hidden, "hidden"),
+  )
+'
+'''
+when = "jj status --quiet"
+
+[custom.jj_state]
+description = "Displays the current state of the jj changes."
+when = "jj status --quiet"
+style = "bold cyan"
+command = '''
+jj log -r@ -l1 --no-graph -T "" --stat | tail -n1 | sd "(\d+) files? changed, (\d+) insertions?\(\+\), (\d+) deletions?\(-\)" ' ${1}m ${2}+ ${3}-' | sd " 0." ""
+'''
+
+[custom.jj_branch]
+description = "Displays the current jj branch."
+when = "jj status --quiet"
+style = "dimmed"
+command = "jj log -r@ -l1 --no-graph -T 'self.branches()'"
