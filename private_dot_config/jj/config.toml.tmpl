@@ -12,8 +12,8 @@ tree-level-conflicts = true
 auto-local-branch = false
 push-branch-prefix = "joster/change-"
 
-[merge-tools.difft]
-diff-args = ["--color-only", "$left", "$right"]
+[merge-tools.delta]
+diff-args = ["-s", "$left", "$right"]
 
 [ui]
 default-command = "log"
