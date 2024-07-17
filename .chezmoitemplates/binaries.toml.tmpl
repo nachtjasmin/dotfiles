@@ -58,9 +58,9 @@ path = "flux"
 
 [[packages]]
 name = "fzf"
-version = "{{ (gitHubLatestRelease "junegunn/fzf").TagName }}"
+version = "{{ (gitHubLatestRelease "junegunn/fzf").Name }}"
 type = "archive-file"
-url = "https://github.com/junegunn/fzf/releases/download/$VERSION/fzf-$VERSION-linux_{{ .chezmoi.arch }}.tar.gz"
+url = "https://github.com/junegunn/fzf/releases/download/v$VERSION/fzf-$VERSION-linux_{{ .chezmoi.arch }}.tar.gz"
 path = "fzf"
 
 [[packages]]
