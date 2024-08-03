@@ -87,13 +87,6 @@ path = "sd"
 stripComponents = 1
 
 [[packages]]
-name = "starship"
-version = "{{ (gitHubLatestRelease "starship/starship").TagName }}"
-type = "archive-file"
-url = "https://github.com/starship/starship/releases/download/$VERSION/starship-x86_64-unknown-linux-gnu.tar.gz"
-path = "starship"
-
-[[packages]]
 name = "jj"
 version = "{{ (gitHubLatestRelease "martinvonz/jj").TagName }}"
 type = "archive-file"
