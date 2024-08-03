@@ -1,5 +1,5 @@
 #!/bin/bash
-# 
+#
 # Moves the .direnv/ directory to the XDG_CACHE_HOME folder in order to avoid confusing IDEs
 # and or editors. See also: https://github.com/direnv/direnv/wiki/Customizing-cache-location
 
