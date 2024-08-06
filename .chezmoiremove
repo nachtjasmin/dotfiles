@@ -7,4 +7,4 @@
 .local/share/light-mode.d/kde-konsole-theme.sh
 .local/bin/git-feature
 .config/containers/toolbox.conf
-.config/fish/conf.d/starship.conf
+.config/fish/conf.d/starship.fish
