@@ -91,3 +91,6 @@ $RECYCLE.BIN/
 # Local lefthook configuration
 /lefthook-local.yml
 /.lefthook-local/
+
+# Local helix configuration
+/.helix/
