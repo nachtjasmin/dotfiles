@@ -4,7 +4,7 @@ function fish_prompt
     set -l normal (set_color normal)
     set -l usercolor (set_color $fish_color_user)
 
-    set delim "> "
+    set delim "; "
     fish_is_root_user; and set delim "# "
 
     set -l cwd (set_color $fish_color_cwd)
@@ -32,6 +32,14 @@ function fish_prompt
     set -l prompt_status
     test $last_status -ne 0; and set prompt_status (set_color $fish_color_status)"[$last_status]$normal"
 
+    # Check current kubernetes context
+    command -q kubectl
+    and set -l _kubectx (kubectl config current-context 2> /dev/null)
+
+    if test -n "$_kubectx"
+        set kube_context (set_color blue)" on $_kubectx$normal"
+    end
+
     # Only show host if in SSH or container
     # Store this in a global variable because it's slow and unchanging
     if not set -q prompt_host
@@ -48,5 +56,6 @@ function fish_prompt
     # Shorten pwd if prompt is too long
     set -l pwd (prompt_pwd)
 
-    echo -n -s $prompt_host $cwd $pwd $normal $prompt_status $delim
+    echo -s $prompt_host $cwd $pwd $kube_context
+    echo -n -s $normal $prompt_status $delim
 end
