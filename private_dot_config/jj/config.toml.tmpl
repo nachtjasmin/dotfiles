@@ -46,13 +46,10 @@ label("node",
 'format_short_commit_id(id)' = 'id.shortest(7)'
 
 [aliases]
-goto = [ "edit" ]
-ll = [ "log", "-T", "builtin_log_detailed" ]
-nom = [ "squash", "--into", "@", "--from" ]
-open = [ "log", "-r", "open()" ]
+goto   = [ "edit" ]
+open   = [ "log", "-r", "open()" ]
 remain = [ "rebase", "-d", "main@origin", "-s" ]
-sl = ["log", "-r", "(trunk()..@):: | (trunk()..@)-"]
-yeet = [ "squash", "--from", "@", "--into" ]
+sl     = ["log", "-r", "(trunk()..@):: | (trunk()..@)-"]
 
 [revset-aliases]
 'trunk()' = 'latest((present(main) | present(master)) & remote_branches())'
