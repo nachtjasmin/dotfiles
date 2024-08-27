@@ -69,3 +69,7 @@ key = "{{ .chezmoi.homeDir }}/.ssh/id_ed25519.pub"
 [fix.tools.yamlfmt]
 command = ["yamlfmt", "-"]
 patterns = ["glob:'**/*.ya?ml'"]
+
+[fix.tools.prettier]
+command = ["npx", "prettier", "--stdin-filepath=$path"]
+patterns = ["glob:'**/*.tsx'", "glob:'**/*.ts'", "glob:'**/*.jsx'", "glob:'**/*.js'", "glob:'**/*.css'", "glob:'**/*.html'"]
