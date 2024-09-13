@@ -15,15 +15,56 @@ push-branch-prefix = "joster/change-"
 # Disable pushing of all commits that are marked as private.
 private-commits = "description(glob:'private:*')"
 
-[merge-tools.delta]
-diff-args = ["$left", "$right"]
-
 [ui]
 default-command = "log"
-diff.tool = "delta"
-diff-editor = "diffedit3"
 log-synthetic-elided-nodes = true
 allow-filesets = true
+
+# Use delta for displaying diffs.
+pager = "delta"
+diff.format = "git"
+
+# ...and `meld-3` for editing it. This is an experimental configuration that
+# leverages three-pane merging. See also:
+# https://martinvonz.github.io/jj/latest/config/#experimental-3-pane-diff-editing
+diff-editor = "meld-3"
+
+# We're also going to use it for merges, e.g. the `resolve` command.
+merge-editor = "meld"
+
+# Let's use Tim Pope's template for messages.
+# https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
+default-description = '''
+JJ: Capitalized, short (50 chars or less) summary
+JJ:
+JJ: More detailed explanatory text, if necessary.  Wrap it to about 72
+JJ: characters or so.  In some contexts, the first line is treated as the
+JJ: subject of an email and the rest of the text as the body.  The blank
+JJ: line separating the summary from the body is critical (unless you omit
+JJ: the body entirely); tools like rebase can get confused if you run the
+JJ: two together.
+JJ:
+JJ: Write your commit message in the imperative: "Fix bug" and not "Fixed bug"
+JJ: or "Fixes bug."  This convention matches up with commit messages generated
+JJ: by commands like git merge and git revert.
+JJ:
+JJ: Further paragraphs come after blank lines.
+JJ:
+JJ: - Bullet points are okay, too
+JJ:
+JJ: - Typically a hyphen or asterisk is used for the bullet, followed by a
+JJ:   single space, with blank lines in between, but conventions vary here
+JJ:
+JJ: - Use a hanging indent
+JJ:
+JJ: and so on.
+JJ:
+JJ: By leveraging trailers, you can provide more information, for example ticket
+JJ: numbers.
+JJ:
+JJ: Resolves: #1312
+JJ: See also: #1312
+'''
 
 [templates]
 op_log_node = 'if(current_operation, "@", "◉")'
@@ -41,14 +82,17 @@ label("node",
 '''
 
 [template-aliases]
-'format_short_signature(signature)' = '"<" ++ signature.email() ++ ">"'
+'format_short_signature(signature)' = '"<" ++ signature.username() ++ ">"'
 'format_short_change_id(id)' = 'id.shortest(4)'
 'format_short_commit_id(id)' = 'id.shortest(7)'
 
 [aliases]
-goto   = [ "edit" ]
-open   = [ "log", "-r", "open()" ]
-remain = [ "rebase", "-d", "main@origin", "-s" ]
+goto = ["edit"]
+open = ["log", "-r", "open()"]
+remain = ["rebase", "-d", "main@origin", "-s"]
+
+# `jj sl` shows commits on the working-copy branch, compared to the trunk
+# (usually main).
 sl = [
   "log",
   "--template",
