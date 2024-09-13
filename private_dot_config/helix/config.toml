@@ -3,7 +3,7 @@ theme = "papercolor-dark"
 [editor]
 # Actually, I don't like the mouse support. I barely use it and when I do it,
 # it's almost always by accident. So, let's get rid of it.
-mouse              = false
+mouse = false
 middle-click-paste = false
 
 ## Autocompletion changes ##
@@ -11,7 +11,7 @@ middle-click-paste = false
 # - Don't apply those changes immediately to avoid unwanted changes
 # - Increase the trigger length from 2 to 3 to be on par with other editors
 preview-completion-insert = false
-completion-trigger-len    = 3
+completion-trigger-len = 3
 
 # Display open buffers at the top of the editor.
 bufferline = "multiple"
