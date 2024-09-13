@@ -8,3 +8,4 @@
 .local/bin/git-feature
 .config/containers/toolbox.conf
 .config/fish/conf.d/starship.fish
+.config/pipewire/pipewire.conf.d/airplay-discover.conf
