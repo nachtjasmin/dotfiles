@@ -327,6 +327,9 @@ complete -f -c jj -n '__jj_seen_subcommand_from unsquash' -s r -l revision -rka 
 complete -f -c jj -n '__jj_seen_subcommand_from branch; and __jj_seen_subcommand_from delete forget rename set' -ka '(__jj_local_branches)'
 complete -f -c jj -n '__jj_seen_subcommand_from branch; and __jj_seen_subcommand_from track untrack' -ka '(__jj_remote_branches)'
 complete -f -c jj -n '__jj_seen_subcommand_from branch; and __jj_seen_subcommand_from create set' -s r -l revision -kra '(__jj_all_changes)'
+complete -f -c jj -n '__jj_seen_subcommand_from branch; and __jj_seen_subcommand_from move' -l from -rka '(__jj_all_changes)'
+complete -f -c jj -n '__jj_seen_subcommand_from branch; and __jj_seen_subcommand_from move' -l to -ka '(__jj_all_changes)'
+complete -f -c jj -n '__jj_seen_subcommand_from branch; and __jj_seen_subcommand_from move' -ka '(__jj_local_branches)'
 
 # Git.
 complete -f -c jj -n '__jj_seen_subcommand_from git; and __jj_seen_subcommand_from push' -s c -l change -kra '(__jj_changes "all()")'
