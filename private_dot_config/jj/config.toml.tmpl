@@ -56,6 +56,14 @@ sl = [
   "-r",
   "(trunk()..@):: | (trunk()..@)-",
 ]
+conflicts = [
+  "log",
+  "-r",
+  "conflict()",
+  "--template",
+  "builtin_log_oneline",
+  "--no-graph",
+]
 
 [revset-aliases]
 'trunk()' = 'latest((present(main) | present(master)) & remote_branches())'
