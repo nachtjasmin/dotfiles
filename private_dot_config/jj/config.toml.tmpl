@@ -12,8 +12,8 @@ tree-level-conflicts = true
 auto-local-branch = true
 push-branch-prefix = "joster/change-"
 
-# Disable pushing of all commits that are work in progress or marked as private.
-private-commits = "description(glob:'wip:*') | description(glob:'private:*')"
+# Disable pushing of all commits that are marked as private.
+private-commits = "description(glob:'private:*')"
 
 [merge-tools.delta]
 diff-args = ["$left", "$right"]
