@@ -10,7 +10,7 @@ tree-level-conflicts = true
 [git]
 # https://github.com/martinvonz/jj/blob/main/docs/config.md#automatic-local-branch-creation
 auto-local-branch = true
-push-branch-prefix = "joster/change-"
+push-bookmark-prefix = "joster/change-"
 
 # Disable pushing of all commits that are marked as private.
 private-commits = "description(glob:'private:*')"
@@ -103,7 +103,7 @@ sl = [
 conflicts = [
   "log",
   "-r",
-  "conflict()",
+  "conflicts()",
   "--template",
   "builtin_log_oneline",
   "--no-graph",
