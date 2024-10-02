@@ -1,7 +1,6 @@
 README.md
 LICENSE
 renovate.json
-lefthook.yml
 install.sh
 
 # Ignore the local git configuration
