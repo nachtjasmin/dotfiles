@@ -82,7 +82,7 @@ conflicts = [
 ]
 
 [revset-aliases]
-'trunk()' = 'latest((present(main) | present(master)) & remote_branches())'
+'trunk()' = 'latest((present(main) | present(master)) & remote_bookmarks())'
 'user(x)' = 'author(x) | committer(x)'
 'open()' = '(mine() ~ ::trunk()) ~ heads(empty())'
 'wip' = 'description("wip: ")'
