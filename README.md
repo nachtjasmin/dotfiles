@@ -1,16 +1,13 @@
 # 👩‍💻 Personal dotfiles, managed by chezmoi
 
-_Operating systems: Arch Linux, Ubuntu (partially)_
-
 ## Installation
 
 ### Clients
 
-To install chezmoi, copy the dotfiles and purge the binary afterwards (it'll install itself using
-the package managers), run the following command:
+To install my dotfiles on any machine, run the following command:
 
 ```shell
-sh -c "$(curl -fsLS chezmoi.io/get)" -- -b "${HOME}/.local/bin/" init --purge-binary --apply nachtjasmin
+sh -c "$(curl -fsLS chezmoi.io/get)" -- -b "${HOME}/.local/bin/" init --apply nachtjasmin
 ```
 
 ### Servers
