@@ -1,0 +1,8 @@
+[Unit]
+Description=Update dotfiles on boot
+
+[Timer]
+OnBootSec=10m
+
+[Install]
+WantedBy=timers.target

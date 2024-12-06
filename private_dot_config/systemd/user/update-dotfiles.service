@@ -1,10 +1,12 @@
 [Unit]
 Description=Update dotfiles
-After=network-online.target
 
 [Service]
 Type=oneshot
-ExecStart=%h/.local/bin/chezmoi update --no-tty --keep-going
-
-[Install]
-WantedBy=default.target
+ExecSearchPath=/usr/bin
+ExecSearchPath=%h/.local/bin
+WorkingDirectory=%h/.local/share/chezmoi
+# This is definitely not optimal in terms of the evolog, but it keeps the state
+# clean.
+ExecStartPre=jj new main
+ExecStart=chezmoi apply --no-tty --keep-going
