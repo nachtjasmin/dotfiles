@@ -111,3 +111,7 @@ patterns = [
 [fix.tools.gofumpt]
 command = ["gofumpt"]
 patterns = ["glob:'**/*.go'"]
+
+[fix.tools.jq]
+command = ["jq", "."]
+patterns = ["glob:'**/*.json'"] 
