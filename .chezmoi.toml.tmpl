@@ -2,6 +2,7 @@
 {{- $remoteContainer := env "REMOTE_CONTAINERS" | not | not -}}
 {{- $insideContainer := or $codespaces $remoteContainer }}
 sourceDir = {{ .chezmoi.sourceDir | quote }}
+encryption = "age"
 
 [data]
 	codespaces = {{ $codespaces }}
@@ -25,3 +26,7 @@ command = "meld"
 [cd]
 command = "fish"
 args = ["--interactive", "--private"]
+
+[age]
+identity = "{{ .chezmoi.homeDir }}/.local/age.txt"
+symmetric = true
