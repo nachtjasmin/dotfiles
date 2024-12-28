@@ -115,3 +115,7 @@ patterns = ["glob:'**/*.go'"]
 [fix.tools.jq]
 command = ["jq", "."]
 patterns = ["glob:'**/*.json'"] 
+
+[fix.tools.taplo]
+command = ["taplo", "fmt", "--stdin-filepath=$path", "-"]
+patterns = ["glob:'**/*.toml'"]
