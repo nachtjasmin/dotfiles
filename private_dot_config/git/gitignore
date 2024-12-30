@@ -83,9 +83,10 @@ $RECYCLE.BIN/
 # direnv (https://direnv.net)
 .direnv/
 
-# I am using direnv even in projects where I don't wanna commit my .envrc, as it simplifies my local
-# development and might use helpers that are probably not available everywhere.
-.envrc
+# Local .envrc configurations are excluded whereas "global" .envrc files are
+# not. This allows me to commit the .envrc to repositories, which is especially
+# useful in combination with a per-repo Nix flake.
+.envrc.*
 .env
 
 # Local lefthook configuration
