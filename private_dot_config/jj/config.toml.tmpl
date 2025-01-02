@@ -8,8 +8,6 @@ email = {{ .email | quote }}
 tree-level-conflicts = true
 
 [git]
-# https://github.com/martinvonz/jj/blob/main/docs/config.md#automatic-local-branch-creation
-auto-local-branch = true
 push-bookmark-prefix = "joster/change-"
 
 # Disable pushing of all commits that are marked as private.
@@ -54,7 +52,7 @@ label("node",
 '''
 
 [template-aliases]
-'format_short_signature(signature)' = '"<" ++ signature.username() ++ ">"'
+'format_short_signature(signature)' = '"<" ++ signature.email().local() ++ ">"'
 'format_short_change_id(id)' = 'id.shortest(4)'
 'format_short_commit_id(id)' = 'id.shortest(7)'
 
