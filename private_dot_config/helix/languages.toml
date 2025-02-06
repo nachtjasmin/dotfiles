@@ -12,3 +12,7 @@ text-width = 72
 [[grammar]]
 name = "jjdescription"
 source = { git = "https://github.com/kareigu/tree-sitter-jjdescription", rev = "d09205b52b5a0165b588a793e366c1116468d86f" }
+
+[[language]]
+name = "markdown"
+text-width = 100
