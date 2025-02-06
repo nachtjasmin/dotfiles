@@ -1,3 +1,4 @@
+"$schema" = "https://jj-vcs.github.io/jj/latest/config-schema.json"
 # This config is based on: https://gist.github.com/thoughtpolice/8f2fd36ae17cd11b8e7bd93a70e31ad6
 
 [user]
@@ -45,7 +46,8 @@ label("node",
     if(current_working_copy, label("working_copy", "◉")),
     if(conflict, label("conflict", "x")),
     if(immutable, label("immutable", "◆")),
-    if(description.starts_with("wip: "), label("wip", "!")),
+    if(subject.starts_with("wip: "), label("wip", "!")),
+    if(subject.starts_with("draft: "), label("wip", "!")),
     label("normal", "○")
   )
 )
@@ -58,7 +60,7 @@ label("node",
 
 [aliases]
 goto = ["edit"]
-open = ["log", "-r", "open()"]
+open = ["log", "--reversed", "-r", "open()",  "--no-pager", "--template", "builtin_log_oneline"]
 remain = ["rebase", "-d", "main@origin", "-s"]
 
 # `jj sl` shows commits on the working-copy branch, compared to the trunk
@@ -83,8 +85,9 @@ conflicts = [
 'trunk()' = 'latest((present(main) | present(master)) & remote_bookmarks())'
 'user(x)' = 'author(x) | committer(x)'
 'open()' = '(mine() ~ ::trunk()) ~ heads(empty())'
-'wip' = 'description("wip: ")'
-'ready' = 'open() ~ (wip::)'
+'wip' = 'subject("wip: ") | subject("draft: ")'
+'ready' = 'open() ~ (wip::) ~ private'
+'private' = 'subject("private: ")'
 
 [signing]
 sign-all = true
@@ -92,7 +95,7 @@ backend = "ssh"
 key = "{{ .chezmoi.homeDir }}/.ssh/id_ed25519.pub"
 
 [fix.tools.yamlfmt]
-command = ["yamlfmt", "-in"]
+command = ["yamlfmt", "-global_conf", "-in"]
 patterns = ["glob:'**/*.yml'", "glob:'**/*.yaml'"]
 
 [fix.tools.prettier]
