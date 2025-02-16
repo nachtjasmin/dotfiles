@@ -1,9 +1,0 @@
-[".config/helix/runtime/queries/jjdescription/highlights.scm"]
-type = "file"
-url = "https://raw.githubusercontent.com/kareigu/tree-sitter-jjdescription/refs/heads/dev/queries/highlights.scm"
-refreshPeriod = "168h"
-
-[".config/helix/runtime/queries/jjdescription/injections.scm"]
-type = "file"
-url = "https://raw.githubusercontent.com/kareigu/tree-sitter-jjdescription/refs/heads/dev/queries/injections.scm"
-refreshPeriod = "168h"
