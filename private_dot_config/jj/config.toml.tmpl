@@ -46,8 +46,8 @@ label("node",
     if(current_working_copy, label("working_copy", "◉")),
     if(conflict, label("conflict", "x")),
     if(immutable, label("immutable", "◆")),
-    if(subject.starts_with("wip: "), label("wip", "!")),
-    if(subject.starts_with("draft: "), label("wip", "!")),
+    if(description.starts_with("wip: "), label("wip", "!")),
+    if(description.starts_with("draft: "), label("wip", "!")),
     label("normal", "○")
   )
 )
@@ -85,9 +85,9 @@ conflicts = [
 'trunk()' = 'latest((present(main) | present(master)) & remote_bookmarks())'
 'user(x)' = 'author(x) | committer(x)'
 'open()' = '(mine() ~ ::trunk()) ~ heads(empty())'
-'wip' = 'subject("wip: ") | subject("draft: ")'
+'wip' = 'description("wip: ") | description("draft: ")'
 'ready' = 'open() ~ (wip::) ~ private'
-'private' = 'subject("private: ")'
+'private' = 'description("private: ")'
 
 [signing]
 sign-all = true
