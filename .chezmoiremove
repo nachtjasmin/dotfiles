@@ -10,3 +10,4 @@
 .config/fish/conf.d/starship.fish
 .config/pipewire/pipewire.conf.d/airplay-discover.conf
 .config/fish/completions/jj.fish
+.config/kitty/current-theme.conf
