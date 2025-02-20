@@ -53,6 +53,15 @@ label("node",
 )
 '''
 
+# Always display a short summary about this commit in the description.
+# This is similar how Git does its COMMIT_MSG.
+draft_commit_description = '''
+		separate("\n",
+			description.remove_suffix("\n"),
+			surround("JJ: Changes:\n", "", indent("JJ: \t", diff.summary()))
+		)
+	'''
+
 [template-aliases]
 'format_short_signature(signature)' = '"<" ++ signature.email().local() ++ ">"'
 'format_short_change_id(id)' = 'id.shortest(4)'
@@ -61,7 +70,15 @@ label("node",
 [aliases]
 goto = ["edit"]
 open = ["log", "--reversed", "-r", "open()",  "--no-pager", "--template", "builtin_log_oneline"]
-remain = ["rebase", "-d", "main@origin", "-s"]
+
+# Rebases the selected revisions on top of the trunk.
+remain = [
+  "rebase",
+  "--skip-emptied",
+  "-d",
+  "trunk()",
+  "-s",
+]
 
 # `jj sl` shows commits on the working-copy branch, compared to the trunk
 # (usually main).
@@ -81,8 +98,10 @@ conflicts = [
   "--no-graph",
 ]
 
+# Abandons all empty commits.
+abandon-empty = ["abandon", "empty() ~ root()"]
+
 [revset-aliases]
-'trunk()' = 'latest((present(main) | present(master)) & remote_bookmarks())'
 'user(x)' = 'author(x) | committer(x)'
 'open()' = '(mine() ~ ::trunk()) ~ heads(empty())'
 'wip' = 'description("wip: ") | description("draft: ")'
