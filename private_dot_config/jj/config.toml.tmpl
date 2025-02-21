@@ -80,6 +80,10 @@ remain = [
   "-s",
 ]
 
+
+# Source: https://github.com/jj-vcs/jj/discussions/4974#discussioncomment-11377322
+rebase-open-work = ["rebase", "-b", "all:mutable() & mine()", "-d", "trunk()"]
+
 # `jj sl` shows commits on the working-copy branch, compared to the trunk
 # (usually main).
 sl = [
