@@ -11,3 +11,10 @@
 .config/pipewire/pipewire.conf.d/airplay-discover.conf
 .config/fish/completions/jj.fish
 .config/kitty/current-theme.conf
+
+.config/fish/completions/git-fixup.fish
+.config/fish/conf.d/add-flatpak-to-path.fish
+.config/fish/conf.d/broot.fish
+.config/fish/conf.d/fnm.fish
+.config/fish/conf.d/editor.fish
+.config/fish/config.fish
