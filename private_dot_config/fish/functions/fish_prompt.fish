@@ -32,30 +32,6 @@ function fish_prompt
     set -l prompt_status
     test $last_status -ne 0; and set prompt_status (set_color $fish_color_status)"[$last_status]$normal"
 
-    # Check current kubernetes context
-    command -q kubectl
-    and begin
-        set -l _current_context (kubectl config view --minify -ojson | jq '.contexts[0].context')
-        set -l _current_cluster (echo $_current_context | jq -r '.cluster')
-
-        # Each cluster is managed via a different kubeconfig file (see kctx.fish).
-        # If it's set, take the filename (without extension) as an additional description.
-        if test -n "$KUBECONFIG"
-            set _current_cluster "$(string replace -r '\.ya?ml' '' (path basename $KUBECONFIG)) ($_current_cluster)"
-        end
-
-        # If not known, the namespace is "default".
-        set -l _current_namespace (echo $_current_context | jq -r '.namespace // "default"')
-        set -f _kubectx $_current_cluster
-
-        # If the namespace is available, set it as well.
-        if test -n "$_current_namespace"
-            set -fa _kubectx in $_current_namespace
-        end
-
-        set -f kube_context (set_color blue)" on $_kubectx$normal"
-    end
-
     # Only show host if in SSH or container
     # Store this in a global variable because it's slow and unchanging
     if not set -q prompt_host
@@ -71,7 +47,6 @@ function fish_prompt
 
     # Shorten pwd if prompt is too long
     set -l pwd (prompt_pwd)
-
-    echo -s $prompt_host $cwd $pwd $kube_context
+    echo -s $prompt_host $cwd $pwd (fish_kubectl_prompt)
     echo -n -s $normal $prompt_status $delim
 end
