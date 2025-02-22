@@ -1,0 +1,14 @@
+#!/usr/bin/env fish
+# This is a simple translation script that just opens the same URL, but with "mid" as a prefix.
+
+set old_url $argv[1]
+set new_url (string replace "message:" "mid:" $old_url)
+
+# Remove angle brackets, include URL-encoded version as well.
+set new_url (string replace -r -a '[\<\>]|(%3[CE])' '' $new_url)
+
+# Short confirmation, helps with debugging
+echo "Previous URL: $old_url"
+echo "New URL:      $new_url"
+
+command xdg-open $new_url
