@@ -28,6 +28,6 @@ function fish_kubectl_prompt --description 'Write out the kubectl prompt'
     end
 
     set_color blue
-    echo -n "on $_kubectx"
+    echo -n " on $_kubectx"
     set_color normal
 end
