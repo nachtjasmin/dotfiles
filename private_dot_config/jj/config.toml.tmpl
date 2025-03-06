@@ -113,7 +113,7 @@ abandon-empty = ["abandon", "empty() ~ root()"]
 'private' = 'description("private: ")'
 
 [signing]
-sign-all = true
+behavior = "own"
 backend = "ssh"
 key = "{{ .chezmoi.homeDir }}/.ssh/id_ed25519.pub"
 
