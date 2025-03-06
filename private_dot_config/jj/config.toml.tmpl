@@ -103,7 +103,7 @@ conflicts = [
 ]
 
 # Abandons all empty commits.
-abandon-empty = ["abandon", "empty() ~ root()"]
+abandon-empty = ["abandon", "empty() & mutable()"]
 
 [revset-aliases]
 'user(x)' = 'author(x) | committer(x)'
