@@ -143,3 +143,7 @@ patterns = ["glob:'**/*.json'"]
 [fix.tools.taplo]
 command = ["taplo", "fmt", "--stdin-filepath=$path", "-"]
 patterns = ["glob:'**/*.toml'"]
+
+[fix.tools.ruff]
+command = ["ruff", "format", "-"]
+patterns = ["glob:'**/*.py'"]
