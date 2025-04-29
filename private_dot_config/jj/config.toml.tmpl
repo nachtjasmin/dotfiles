@@ -147,3 +147,11 @@ patterns = ["glob:'**/*.toml'"]
 [fix.tools.ruff]
 command = ["ruff", "format", "-"]
 patterns = ["glob:'**/*.py'"]
+
+[fix.tools.golangci-lint]
+command = ["golangci-lint", "fmt", "--stdin"]
+patterns = ["glob:'**/*.go'"]
+
+[fix.tools.shfmt]
+command = ["shfmt", "--filename=$path"]
+patterns = ["glob:'**/*.sh'"]
