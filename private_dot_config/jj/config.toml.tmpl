@@ -20,7 +20,7 @@ log-synthetic-elided-nodes = true
 allow-filesets = true
 
 # Use delta for displaying diffs.
-pager = "delta"
+pager = ["delta", "--line-numbers", "--navigate", "--side-by-side"]
 diff.format = "git"
 
 # ...and `meld-3` for editing it. This is an experimental configuration that
@@ -30,6 +30,13 @@ diff-editor = "meld-3"
 
 # We're also going to use it for merges, e.g. the `resolve` command.
 merge-editor = "meld"
+
+# As I am using mostly the edit workflow, the prev/next commands can be adjusted
+# a bit to my needs. This way, jujutsu is not taking the previous node (@-) to determine
+# where to go, but the current node (@) instead.
+#
+# https://jj-vcs.github.io/jj/latest/config/#behavior-of-prev-and-next-commands 
+movement.edit = true
 
 default-description = '''
 
@@ -66,10 +73,38 @@ draft_commit_description = '''
 'format_short_signature(signature)' = '"<" ++ signature.email().local() ++ ">"'
 'format_short_change_id(id)' = 'id.shortest(4)'
 'format_short_commit_id(id)' = 'id.shortest(7)'
+'format_timestamp(timestamp)' = 'timestamp.local().format("%Y-%m-%d %H:%M")'
+
+# Derived from the builtin_log_oneline. Items that are not important for "jj
+# open" are removed for compacting the output.
+log_oneline_compact = '''
+if(root,
+  format_root_commit(self),
+  label(if(current_working_copy, "working_copy"),
+    concat(
+      separate(" ",
+        format_short_change_id_with_hidden_and_divergent_info(self),
+        bookmarks,
+        tags,
+        working_copies,
+        if(conflict, label("conflict", "conflict")),
+        if(empty, label("empty", "(empty)")),
+        if(description,
+          description.first_line(),
+          label(if(empty, "empty"), description_placeholder),
+        ),
+      ) ++ "\n",
+    ),
+  )
+)
+'''
 
 [aliases]
 goto = ["edit"]
-open = ["log", "--reversed", "-r", "open()",  "--no-pager", "--template", "builtin_log_oneline"]
+open = ["log", "--reversed", "-r", "open()",  "--no-pager", "--template", "log_oneline_compact"]
+
+# Found here: https://github.com/jj-vcs/jj/discussions/5812
+tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
 
 # Rebases the selected revisions on top of the trunk.
 remain = [
@@ -93,6 +128,9 @@ sl = [
   "-r",
   "(trunk()..@):: | (trunk()..@)-",
 ]
+n = ["new"]
+push = ["git", "push"]
+fetch = ["git", "fetch"]
 conflicts = [
   "log",
   "-r",
