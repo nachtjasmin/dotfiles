@@ -14,6 +14,12 @@ push-bookmark-prefix = "joster/change-"
 # Disable pushing of all commits that are marked as private.
 private-commits = "description(glob:'private:*')"
 
+# Experimental support for the "change-id" header being submitted via Git to the
+# remote. Introduced in v0.29.0.
+#
+# Enabled, because I want to experiment with it.
+write-change-id-header = true
+
 [ui]
 default-command = "log"
 log-synthetic-elided-nodes = true
@@ -38,12 +44,6 @@ merge-editor = "meld"
 # https://jj-vcs.github.io/jj/latest/config/#behavior-of-prev-and-next-commands 
 movement.edit = true
 
-default-description = '''
-
-JJ: Closes: <TODO>
-JJ: See also: <TODO>
-'''
-
 [templates]
 op_log_node = 'if(current_operation, "@", "◉")'
 log_node = '''
@@ -59,6 +59,12 @@ label("node",
   )
 )
 '''
+# Always add the DCO ownership signing trailer and encourage myself to add an
+# issue number to all commits. Especially for work, this might turn out to be
+# useful.
+commit_trailers = '''
+format_signed_off_by_trailer(self)
+++ if(!trailers.contains_key("Closes"), "Closes: ")'''
 
 # Always display a short summary about this commit in the description.
 # This is similar how Git does its COMMIT_MSG.
