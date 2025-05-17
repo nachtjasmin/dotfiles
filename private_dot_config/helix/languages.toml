@@ -16,3 +16,9 @@ source = { git = "https://github.com/kareigu/tree-sitter-jjdescription", rev = "
 [[language]]
 name = "markdown"
 text-width = 100
+
+# Required hotfix for taplo's "this document has been excluded" warning.
+# https://github.com/tamasfe/taplo/issues/320#issuecomment-2576801631
+[[language]]
+name = "toml"
+roots = ["."]
