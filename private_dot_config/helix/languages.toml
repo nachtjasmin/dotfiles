@@ -1,18 +1,3 @@
-use-grammars = { only = ["jjdescription"] }
-
-[[language]]
-name = "jjdescription"
-scope = "jj.description"
-file-types = [{ glob = "*.jjdescription" }]
-comment-token = "JJ:"
-indent = { tab-width = 2, unit = "  " }
-rulers = [51, 73]
-text-width = 72
-
-[[grammar]]
-name = "jjdescription"
-source = { git = "https://github.com/kareigu/tree-sitter-jjdescription", rev = "d09205b52b5a0165b588a793e366c1116468d86f" }
-
 [[language]]
 name = "markdown"
 text-width = 100
