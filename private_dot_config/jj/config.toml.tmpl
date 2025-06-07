@@ -14,19 +14,13 @@ push-bookmark-prefix = "joster/change-"
 # Disable pushing of all commits that are marked as private.
 private-commits = "description(glob:'private:*')"
 
-# Experimental support for the "change-id" header being submitted via Git to the
-# remote. Introduced in v0.29.0.
-#
-# Enabled, because I want to experiment with it.
-write-change-id-header = true
-
 [ui]
 default-command = "status"
 allow-filesets = true
 
 # Use delta for displaying diffs.
 pager = ["delta", "--line-numbers", "--navigate"]
-diff.format = "git"
+diff-formatter = ":git"
 
 # ...and `meld-3` for editing it. This is an experimental configuration that
 # leverages three-pane merging. See also:
