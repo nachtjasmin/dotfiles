@@ -206,7 +206,7 @@ abandon-empty = ["abandon", "empty() & mutable()"]
 
 [revset-aliases]
 'user(x)' = 'author(x) | committer(x)'
-'open()' = '(mine() ~ ::trunk()) ~ heads(empty())'
+'open()' = '(mine() ~ ::trunk()) ~ heads(empty()) ~ immutable()'
 'wip' = 'description("wip: ") | description("draft: ")'
 'ready' = 'open() ~ (wip::) ~ private'
 'private' = 'description("private: ")'
