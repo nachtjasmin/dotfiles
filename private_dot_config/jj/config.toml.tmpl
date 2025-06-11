@@ -51,6 +51,8 @@ label("node",
   )
 )
 '''
+
+{{ if .work }}
 # Always add the DCO ownership signing trailer and encourage myself to add an
 # issue number to all commits. Especially for work, this might turn out to be
 # useful.
@@ -63,6 +65,7 @@ if(!empty,
     if(!trailers.contains_key("Closes"), "Closes: ")
 )
 '''
+{{ end }}
 
 # Display a short summary about this commit in the description.
 # This is similar how Git does its COMMIT_MSG with commit.verbose=true.

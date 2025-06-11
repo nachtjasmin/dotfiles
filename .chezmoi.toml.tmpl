@@ -14,6 +14,7 @@ encryption = "age"
 {{- else }}
 	{{ $server := promptBool "Target is server" false }}
 	server = {{ $server }}
+	work = {{ promptBool "Is this device used at work?" false }}
 	{{- if not $server }}
 	name = {{ promptString "Git username:" | quote }}
 	email = {{ promptString "Git email address:" | quote }}
