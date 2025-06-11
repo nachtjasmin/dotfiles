@@ -36,6 +36,27 @@ merge-editor = "meld"
 # https://jj-vcs.github.io/jj/latest/config/#behavior-of-prev-and-next-commands 
 movement.edit = true
 
+# https://zerowidth.com/2025/jj-tips-and-tricks/
+# Credits go to "dubi steinkek" from the Discord channel.
+[merge-tools.gitpatch]
+program = "sh"
+edit-args = ["-c", '''
+  set -eu
+  rm -f "$right/JJ-INSTRUCTIONS"
+  git -C "$left" init -q
+  git -C "$left" add -A
+  git -C "$left" commit -q -m baseline --allow-empty
+  mv "$left/.git" "$right"
+  git -C "$right" add --intent-to-add -A
+  git -C "$right" add -p
+  git -C "$right" diff-index --quiet --cached HEAD && { echo "No changes done, aborting split."; exit 1; }
+  git -C "$right" commit -q -m split
+  git -C "$right" restore . # undo changes in modified files
+  git -C "$right" reset .   # undo --intent-to-add
+  git -C "$right" clean -q -df # remove untracked files
+''',
+]
+
 [templates]
 op_log_node = 'if(current_operation, "@", "◉")'
 log_node = '''
