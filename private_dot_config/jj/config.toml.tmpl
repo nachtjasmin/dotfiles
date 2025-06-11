@@ -254,3 +254,7 @@ patterns = ["glob:'**/*.go'"]
 [fix.tools.shfmt]
 command = ["shfmt", "--filename=$path"]
 patterns = ["glob:'**/*.sh'"]
+
+[fix.tools.formatjson5]
+command = ["formatjson5", "-i", "2", "-"]
+patterns = ["glob:'**/*.json5'"]
