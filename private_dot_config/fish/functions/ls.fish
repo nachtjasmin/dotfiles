@@ -1,4 +1,4 @@
-function ls --wraps='eza -lhT --group-directories-first --level 1' --description 'alias ls eza -lhT --group-directories-first --level 1'
-    command -q eza; and eza -lhT --group-directories-first --level 1 $argv
+function ls --description 'Use eza for listing files if available'
+    command -q eza; and eza -lgh --smart-group --group-directories-first $argv
     or command ls
 end
