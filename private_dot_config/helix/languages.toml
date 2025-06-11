@@ -1,3 +1,7 @@
+[language-server.ruby-lsp]
+command = "ruby-lsp"
+config = { diagnostics = true, formatting = true }
+
 [[language]]
 name = "markdown"
 text-width = 100
@@ -7,3 +11,8 @@ text-width = 100
 [[language]]
 name = "toml"
 roots = ["."]
+
+[[language]]
+name = "ruby"
+language-servers = [ "ruby-lsp" ]
+auto-format=true
