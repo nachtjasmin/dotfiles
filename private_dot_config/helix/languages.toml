@@ -14,17 +14,23 @@ roots = ["."]
 
 [[language]]
 name = "ruby"
-language-servers = [ "ruby-lsp" ]
-auto-format=true
+language-servers = ["ruby-lsp"]
+auto-format = true
 
 [[language]]
 name = "go"
 auto-format = true
-language-servers = [ "gopls", "golangci-lint-lsp" ]
+language-servers = ["gopls", "golangci-lint-lsp"]
 
 [language-server.golangci-lint-lsp]
 command = "golangci-lint-langserver"
 
 [language-server.golangci-lint-lsp.config]
-command = ["golangci-lint", "run", "--output.json.path", "stdout", "--show-stats=false", "--issues-exit-code=1"]
-
+command = [
+  "golangci-lint",
+  "run",
+  "--output.json.path",
+  "stdout",
+  "--show-stats=false",
+  "--issues-exit-code=1",
+]
