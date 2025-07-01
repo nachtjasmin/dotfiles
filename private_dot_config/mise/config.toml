@@ -1,6 +1,9 @@
 [settings]
 experimental = true
 
+# Do not care about .python-version and such.
+idiomatic_version_file_enable_tools = []
+
 [tools]
 "aqua:codeberg.org/mergiraf/mergiraf" = "latest"
 bat = "latest"
