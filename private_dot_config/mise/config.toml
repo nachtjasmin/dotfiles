@@ -1,0 +1,25 @@
+[settings]
+experimental = true
+
+[tools]
+"aqua:codeberg.org/mergiraf/mergiraf" = "latest"
+bat = "latest"
+chezmoi = "latest"
+cosign = "latest"
+delta = "latest"
+difftastic = "latest"
+direnv = "latest"
+eza = "latest"
+fd = "latest"
+flux2 = "latest"
+fzf = "latest"
+golangci-lint = "latest"
+helix = "latest"
+jj = "latest"
+kubectl = "latest"
+ripgrep = "latest"
+sd = "latest"
+shfmt = "latest"
+taplo = "latest"
+usage = "latest"
+watchexec = "latest"

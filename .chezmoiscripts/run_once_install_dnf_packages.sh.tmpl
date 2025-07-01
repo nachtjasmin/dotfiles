@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
 
-{{ if and (not .server) (eq .chezmoi.osRelease.id "fedora") }}
-
-sudo dnf install \
-  difftastic \
-  fish \
-  helix
-
+{{ if (eq .chezmoi.osRelease.id "fedora") }}
+sudo dnf install fish
 {{ end }}
