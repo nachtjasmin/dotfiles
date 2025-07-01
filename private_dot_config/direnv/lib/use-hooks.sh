@@ -8,7 +8,7 @@
 
 use_hooks() {
 	if has pre-commit && [[ -f ".pre-commit-config.yaml" ]]; then
-	  pre-commit install
+		pre-commit install
 	fi
 
 	if has lefthook && [[ -f ".lefthook.yml" ]]; then
