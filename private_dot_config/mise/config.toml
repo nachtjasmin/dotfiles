@@ -30,3 +30,8 @@ shfmt = "latest"
 taplo = "latest"
 usage = "latest"
 watchexec = "latest"
+
+[hooks]
+# Automatically install tools when entering a project:
+# https://mise.jdx.dev/tips-and-tricks.html#auto-install-when-entering-a-project
+enter = "mise i -q"
