@@ -4,6 +4,10 @@ experimental = true
 # Do not care about .python-version and such.
 idiomatic_version_file_enable_tools = []
 
+# Paranoid mode to make sure everything is running over HTTPS and needs my
+# explicit approval.
+paranoid = true
+
 [tools]
 "aqua:codeberg.org/mergiraf/mergiraf" = "latest"
 bat = "latest"
