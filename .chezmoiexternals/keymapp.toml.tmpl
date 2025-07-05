@@ -1,5 +1,7 @@
+{{ if not .server }}
 [".local/bin/keymapp"]
 executable = true
 type = "archive-file"
 url = "https://oryx.nyc3.cdn.digitaloceanspaces.com/keymapp/keymapp-latest.tar.gz"
 path = "keymapp"
+{{ end }}

@@ -1,10 +1,13 @@
 #!/bin/bash
 #
 # Install requirements according to: https://github.com/zsa/wally/wiki/Linux-install
-#
+
+{{ if (eq .chezmoi.osRelease.id "fedora") }}
 # Currently hardcoded for dnf-based systems.
 run0 yum install gtk3 webkit2gtk4.1 libusb
+{{ end }}
 
+{{ if not .server }}
 cat <<EOF | sudo tee /etc/udev/rules.d/50-zsa.rules
 # Rules for Oryx web flashing and live training
 KERNEL=="hidraw*", ATTRS{idVendor}=="16c0", MODE="0664", GROUP="plugdev"
@@ -33,3 +36,4 @@ SUBSYSTEMS=="usb", ATTRS{idVendor}=="3297", MODE:="0666", SYMLINK+="ignition_dfu
 EOF
 
 echo "Setup udev rules for flashing the ZSA Moonlander. Remember to reboot your system!!"
+{{ end }}
