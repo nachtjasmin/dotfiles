@@ -1,4 +1,0 @@
-[".local/bin/mise"]
-type = "file"
-executable = true
-url = "https://mise.jdx.dev/mise-latest-linux-x64"
