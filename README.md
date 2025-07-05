@@ -1,5 +1,8 @@
 # 👩‍💻 Personal dotfiles, managed by chezmoi
 
+> [!IMPORTANT]
+> This repository is no longer kept up-to-date. I moved it to [sr.ht](https://sr.ht/~nachtjasmin/dotfiles/), due to GitHub's AI slop pollution.
+
 ## Installation
 
 ### Clients
